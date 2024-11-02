@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agratas Infotech - Faculty Development Program</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="Style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Source+Code+Pro&display=swap");
+
+      :root {
+        --primary-color: #ff6f61;
+        --secondary-color: #ffd700;
+        --bg-color: #10121b;
+        --text-color: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.07);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      #canvas-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        position: relative;
+      }
+
+      header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        font-family: "Source Code Pro", monospace;
+        text-shadow: 0 0 15px var(--primary-color);
+        opacity: 0;
+      }
+
+      .subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        color: var(--secondary-color);
+        opacity: 0;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 60px;
+        transform: translateX(50px);
+        opacity: 0;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-family: "Source Code Pro", monospace;
+      }
+
+      p,
+      ul,
+      ol {
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: var(--bg-color);
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        transition: left 0.5s ease;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+      }
+
+      .cta-button.pulse {
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 3rem;
+        }
+        .subtitle {
+          font-size: 1.5rem;
+        }
+        .content-section {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!---------------------------------NAVBAR----------------------------------- -->
+    <nav>
+      <div class="logo">
+        <a href="Index.html"
+          ><img src="img/agratas-main-logo.png" alt="logo"
+        /></a>
+      </div>
+      <div class="option">
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              What we do <span class="arrow fa fa-angle-down"></span
+            ></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="#"
+                  >Overview
+                  <span
+                    class="arrow fa fa-angle-right right-arrow toggle-submenu"
+                  ></span>
+                  <span class="tcs-hover"
+                    >Agratas Infotech Private Limited</span
+                  >
+                  <span class="tcs-hover-details">
+                    Founded in November 25, 2020. Agratas Infotech is a premier
+                    product-based technology <br />
+                    company headquatered in Ocean Plaza, Sector 18 , Noida. We
+                    specialized to develop <br />
+                    cutting edge software products tailored for Industries such
+                    as Healthcare, Finance <br />
+                    Retails, etc. Our mission is to empower Businesses by
+                    enhancing and fostering operational <br />
+                    efficiency and fostering digital transformation through
+                    innovative technology.
+                    <br />
+                    <br />
+                    <strong><u>Our Mission</u></strong
+                    >: To empower by delivering innovative technology solutions
+                    <br />
+                    that drive digital transformation and operational
+                    excellence. <br />
+                    <br />
+                    <strong><u>Our Vision</u></strong
+                    >: To be a Global leader in technology innovation,
+                    consistantly <br />
+                    delivering Soultions that exceeds our client's expectations
+                    and shape the future.
+                  </span>
+                </a>
+              </li>
+              <li id="active">
+                <a href="#"
+                  >Industries
+                  <span
+                    class="arrow fa fa-angle-right right-arrow toggle-submenu"
+                  ></span>
+                </a>
+                <ul class="inner-submenu" id="inner-submenu-one">
+                  <a href="banking_finance.html"><li>Banking</li></a>
+                  <a href="banking_finance.html"><li>Finance</li></a>
+                  <li>Digitalization</li>
+                  <li>Communications, Media, and Information Services</li>
+                  <li>Education</li>
+                  <li>Supply Chain Management</li>
+                  <li>High Tech</li>
+                  <li>Life Sciences</li>
+                  <li>Open Sourcing</li>
+                </ul>
+              </li>
+              <li id="active">
+                <a href="#"
+                  >Services
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span
+                ></a>
+                <ul class="inner-submenu" id="inner-submenu-two">
+                  <a href="ArtificialIntelIigence.html"
+                    ><li>Artificial Intelligence</li></a
+                  >
+                  <a href="cloudArticle.html"><li>Cloud</li></a>
+                  <a href="DigitalMarketing.html"><li>Digitalization</li></a>
+                  <a href="cybersecurity.html"><li>Cyber Security</li></a>
+                  <a href="web_development.html"><li>Web Development</li></a>
+                  <a href="mobile_app_development.html"
+                    ><li>Mobile App Development</li></a
+                  >
+                  <a href="IT_consulting.html"><li>IT Consultance</li></a>
+                  <a href="Ecommerce.html"><li>E-Commerce solutions</li></a>
+                </ul>
+              </li>
+              <li id="active">
+                <a href="#"
+                  >Product and Platforms
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span
+                ></a>
+                <ul class="inner-submenu" id="inner-submenu-three">
+                  <a href="{% url 'dashboard' %}"
+                    ><li>AIPL ShopApp<sup>TM</sup></li></a
+                  >
+                  <a href="{% url 'dashboard' %}"
+                    ><li>AIPL ERP<sup>TM</sup></li></a
+                  >
+                  <a href="{% url 'dashboard' %}"><li>AIPL SploitWeb</li></a>
+                  <a href="{% url 'dashboard' %}"
+                    ><li>AIPL Hotel Management System<sup>TM</sup></li></a
+                  >
+                  <a href="{% url 'dashboard' %}"
+                    ><li>
+                      AIPL Customer Intelligence & Insights<sup>TM</sup>
+                    </li></a
+                  >
+                  <a href="{% url 'dashboard' %}"><li>AIPL ERP on Cloud</li></a>
+                  <a href="{% url 'dashboard' %}"
+                    ><li>AIPL Restaurant Management System<sup>TM</sup></li></a
+                  >
+                  <a href="{% url 'dashboard' %}"
+                    ><li>AIPL College ERP<sup>TM</sup></li></a
+                  >
+                </ul>
+              </li>
+              <li id="active">
+                <a href="#"
+                  >Research and Innovations
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span
+                ></a>
+                <ul class="inner-submenu" id="inner-submenu-four">
+                  <li>AIPL Research</li>
+                  <li>AIPL R&D Team</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"
+              >Who are we <span class="arrow fa fa-angle-down"></span
+            ></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="impact.html">Impact</a></li>
+              <li>
+                <a href="leadership.html">Leadership</a>
+              </li>
+              <li>
+                <a href="testimonials.html">Testimonial</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"
+              >Education <span class="arrow fa fa-angle-down"></span
+            ></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="internship.html">Internships</a>
+              </li>
+              <li><a href="AgratasiaHackForm.html">Hackathons</a></li>
+              <li>
+                <a href="placements.html">Placement</a>
+              </li>
+              <li>
+                <a href="industrial_training.html">Industrial Training</a>
+              </li>
+              <li>
+                <a href="techsummit.html">Tech Summit</a>
+              </li>
+              <li>
+                <a href="FDP.html">FDP</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Careers <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Internships</a></li>
+              <li><a href="maintenance.html">Developers</a></li>
+              <li><a href="maintenance.html">Regional Partners</a></li>
+              <li>
+                <a href="maintenance.html">Management Employees</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"
+              >Newsroom <span class="arrow fa fa-angle-down"></span
+            ></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Press release</a></li>
+              <li><a href="maintenance.html">News alerts</a></li>
+              <li><a href="maintenance.html">Analyst recognition</a></li>
+              <li><a href="maintenance.html">Media kit</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"
+              >Investors <span class="arrow fa fa-angle-down"></span
+            ></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Manage Commentary</a></li>
+              <li><a href="maintenance.html">Financials</a></li>
+              <li><a href="maintenance.html">News and Events</a></li>
+              <li><a href="maintenance.html">ESG</a></li>
+              <li><a href="maintenance.html">Resources</a></li>
+            </ul>
+          </li>
+          <li><a href="maintenance.html">AIPL worldwide</a></li>
+        </ul>
+      </div>
+      <div class="searchbar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="address-bar-container" id="address-bar-container">
+        <div class="address-bar">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search here..."
+          />
+          <button class="close-btn" id="close-btn">X</button>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+    </nav>
+
+    <div id="canvas-container"></div>
+
+    <header>
+      <h1>Faculty Development Program</h1>
+      <p class="subtitle">Empowering Educators for a Future-Ready World</p>
+    </header>
+
+    <div class="container">
+      <section class="content-section">
+        <h2>Comprehensive Workshops</h2>
+        <p>
+          Engage in specialized training designed to enhance teaching
+          methodologies and integrate technology into education.
+        </p>
+        <ul>
+          <li>Interactive pedagogy workshops</li>
+          <li>Technology integration in classrooms</li>
+          <li>Design thinking for modern educators</li>
+          <li>Blended learning approaches</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Expert Sessions</h2>
+        <p>Learn from leading experts in education and technology:</p>
+        <ul>
+          <li>Keynotes from academic and industry leaders</li>
+          <li>Sessions on AI in education</li>
+          <li>Workshops on digital literacy</li>
+          <li>Specialized sessions on online teaching platforms</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Networking and Collaboration</h2>
+        <p>Connect with fellow educators and build collaborative networks:</p>
+        <ul>
+          <li>Collaborative projects with educators worldwide</li>
+          <li>Breakout sessions for sharing best practices</li>
+          <li>Peer learning and feedback sessions</li>
+          <li>Group discussions on future-ready education</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Register for FDP 2024</h2>
+        <p>
+          Join the Faculty Development Program and take the next step in
+          advancing your teaching career.
+        </p>
+        <a href="#" class="cta-button pulse">Register Now</a>
+      </section>
+    </div>
+
+    <script>
+      // Three.js Animation for FDP
+      let scene, camera, renderer, ringParticles;
+
+      function initThree() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document
+          .getElementById("canvas-container")
+          .appendChild(renderer.domElement);
+
+        const geometry = new THREE.RingGeometry(1, 5, 32);
+        const material = new THREE.MeshBasicMaterial({
+          color: 0xff6f61,
+          side: THREE.DoubleSide,
+        });
+
+        const ringsGroup = new THREE.Group();
+
+        for (let i = 0; i < 50; i++) {
+          const ring = new THREE.Mesh(geometry, material);
+          ring.position.set(
+            (Math.random() - 0.5) * 500,
+            (Math.random() - 0.5) * 500,
+            (Math.random() - 0.5) * 500
+          );
+          ring.rotation.x = Math.random() * 2 * Math.PI;
+          ring.rotation.y = Math.random() * 2 * Math.PI;
+          ringsGroup.add(ring);
+        }
+
+        scene.add(ringsGroup);
+        camera.position.z = 1000;
+
+        function animateThree() {
+          requestAnimationFrame(animateThree);
+          ringsGroup.rotation.x += 0.001;
+          ringsGroup.rotation.y += 0.002;
+          renderer.render(scene, camera);
+        }
+        animateThree();
+      }
+
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      // GSAP Animations for FDP
+      function initGSAP() {
+        gsap.to("h1", { duration: 1.8, opacity: 1, y: 0, ease: "power4.out" });
+        gsap.to(".subtitle", {
+          duration: 1.5,
+          opacity: 1,
+          y: 0,
+          ease: "power4.out",
+          delay: 0.3,
+        });
+        gsap.to(".cta-button", {
+          duration: 1.5,
+          opacity: 1,
+          y: 0,
+          ease: "power4.out",
+          delay: 0.6,
+        });
+
+        gsap.utils.toArray(".content-section").forEach((section, i) => {
+          gsap.to(section, {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+            duration: 1.2,
+            opacity: 1,
+            x: 0,
+            ease: "power3.out",
+            delay: i * 0.2,
+          });
+        });
+      }
+
+      // Init
+      window.addEventListener("load", () => {
+        initThree();
+        initGSAP();
+      });
+
+      window.addEventListener("resize", onWindowResize);
+    </script>
+
+    <!--------------------------------------------------- FOOTER ---------------------------------------->
+    <footer>
+      <div class="content">
+        <div class="top">
+          <div class="logo-details">
+            <i class="fab fa-slack"></i>
+            <span class="logo_name">Agratas Infotech Private Limited</span>
+          </div>
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">Company</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Get started</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Services</li>
+            <li><a href="#">App Development</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Game Development</a></li>
+            <li><a href="#">UIUX/Logo design</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Opportunities</li>
+            <li><a href="#">ID Verification</a></li>
+            <li><a href="{% url 'articles' '#' %}">Apply for Jobs</a></li>
+            <li><a href="{% url 'articles' '#' %}">Explore Hackathons</a></li>
+            <li><a href="#">Our R&D Team</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Specialized</li>
+            <li>
+              <a href="ArtificialIntelIigence.html">Artificial Intelligence</a>
+            </li>
+            <li><a href="#">Machine Learning</a></li>
+            <li><a href="DigitalMarketing.html">Digital Marketing</a></li>
+            <li><a href="#">Internet of Things</a></li>
+          </ul>
+          <ul class="box input-box">
+            <form
+              style="
+                background: transparent;
+                padding: 0px;
+                border-radius: 0px;
+                box-shadow: 0 0 0px transparent;
+                width: auto;
+                max-width: unset;
+                box-sizing: unset;
+              "
+              class="footer-form"
+              action="{% url 'subscribe' %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <li class="link_name">Subscribe</li>
+              <li>
+                <input
+                  type="email"
+                  name="subscribe"
+                  placeholder="Enter your email"
+                />
+              </li>
+              <li><input type="submit" /></li>
+            </form>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text"
+            >Copyright © 2024 <a href="#">erp.agratasinfotech.com</a>All rights
+            reserved</span
+          >
+          <span class="policy_terms">
+            <a href="refund2.html">Refund policy</a>
+            <a href="privacy.html">Privacy policy</a>
+            <a href="Terms_and_Conditions.html">Terms & Conditions</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="Script.js"></script>
