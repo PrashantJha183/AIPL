@@ -1,44 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refund Policy - Agratas Infotech Pvt Ltd</title>
 
-    <link rel="stylesheet" href="Style.css">
-    <style>
-        nav{
-            left: 0px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy - Agratas Infotech Pvt Ltd</title>
+
+
+  <style>
+    /* -------------------------------------------- NAVBAR ------------------------------------------- */
+    nav {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      height: 12vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-weight: 400;
+      font-size: 1pc;
+      line-height: 1.5;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Example CSS */
+    nav.scrolled {
+      background-color: #212529;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      margin-top: 1%;
+    }
+
+    .logo img {
+      height: 10vh;
+      width: 15vw;
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Option css */
+    .option {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+    }
+
+    .nav-links-background {
+      background-color: #000;
+      width: 100vw;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links .submenu .show {
+      left: 0;
+    }
+
+    .option li {
+      margin-left: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .option a {
+      font-size: 1rem;
+      color: #9e9fa3;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+    .arrow {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.down {
+      transform: rotate(180deg);
+    }
+
+    /* Submenus css */
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #212529;
+      padding: 0% 50% 95% 50%;
+      z-index: 1;
+      width: 100vw;
+      top: 66px;
+      transition: top 0.9s ease-in;
+      left: 0;
+    }
+
+    .submenu #active:hover {
+      background-color: black;
+      color: #fff;
+    }
+
+    .submenu.show {
+      display: block;
+      left: 0;
+      width: 100vw;
+    }
+
+    .submenu li {
+      list-style: none;
+      padding: 2% 0% 1% 0%;
+      border-bottom: 1px solid white;
+      width: 18vw;
+      text-align: left;
+    }
+
+    .option li.active>ul {
+      display: block;
+    }
+
+    /* Menu of submenu */
+    .tcs-hover {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 120%;
+      padding: 0.5rem;
+      width: 100vw;
+      font-size: 2rem;
+      color: #fff;
+      height: auto;
+    }
+
+    #active:hover .tcs-hover {
+      display: inline-block;
+    }
+
+    .tcs-hover-details {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 120%;
+      padding: 0.5rem;
+      width: 80vw;
+      height: auto;
+    }
+
+    #active:hover .tcs-hover-details {
+      display: block;
+    }
+
+    .inner-submenu {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 110%;
+      background-color: #212529;
+      list-style: none;
+      padding: 0% 0% 0% 0%;
+      z-index: 1000;
+      width: auto;
+    }
+
+    #inner-submenu-one {
+      margin-top: -18%;
+    }
+
+    #inner-submenu-two {
+      margin-top: -40%;
+    }
+
+    #inner-submenu-three {
+      margin-top: -62%;
+    }
+
+    #inner-submenu-four {
+      margin-top: -83%;
+    }
+
+    .inner-submenu li {
+      border: none;
+      color: none;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inner-submenu li:hover {
+      background-color: none;
+      border-bottom: 1px solid white;
+      width: fit-content;
+    }
+
+    .submenu li:hover>.inner-submenu,
+    .submenu li:focus>.inner-submenu li {
+      display: block;
+    }
+
+    .inner-submenu li:hover>ul {
+      display: block;
+    }
+
+    .arrow-right {
+      margin-right: auto;
+    }
+
+    /* Searchbar css */
+    .searchbar {
+      margin-right: 20px;
+    }
+
+    .searchbar i {
+      height: auto;
+      width: auto;
+      cursor: pointer;
+      margin: auto;
+    }
+
+    /* CSS for the address bar */
+    .address-bar-container {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 12vh;
+      background-color: #212529;
+      transition: top 0.2s ease-in-out;
+      z-index: 1000;
+      display: none;
+    }
+
+    .address-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .address-bar input {
+      caret-color: green;
+      outline: none;
+      padding: 10px;
+      font-size: 1.5rem;
+      background: transparent;
+      border-bottom: 2px solid white;
+    }
+
+    .search-input {
+      width: 80vw;
+      padding: 5px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .close-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* Hamburger css */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .hamburger .line {
+      background-color: #fff;
+      width: 25px;
+      height: 3px;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .hamburger.active .line-1 {
+      transform: rotate(45deg) translate(5px, 10px);
+    }
+
+    .hamburger.active .line-2 {
+      width: 0px;
+    }
+
+    .hamburger.active .line-3 {
+      transform: rotate(-45deg) translate(5px, -10px);
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .logo img {
+        width: 40vw;
+      }
+
+      .address-bar-container {
+        height: 12vh;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .option {
+        display: block;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        transition: right 0.8s ease-in-out;
+        overflow-y: auto;
+      }
+
+      .option.scrolled {
+        right: -100%;
+        background-color: #212529;
+        transition: 0.8s ease;
+      }
+
+      .option.active {
+        right: 0;
+        z-index: 100;
+      }
+
+      .option ul {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .option li {
+        margin: 10px 20px;
+      }
+
+      .option ul li {
+        border-bottom: 1px solid white;
+        width: auto;
+      }
+
+      .arrow {
+        margin-left: auto;
+      }
+
+      .arrow.down {
+        transform: rotate(180deg);
+        transition: 0.1s ease;
+      }
+
+      .searchbar {
+        margin: 10px 20px;
+      }
+
+      .searchbar i {
+        height: 3vh;
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+      }
+
+      .submenu {
+        left: 0;
+        position: relative;
+        width: auto;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+      }
+
+      .submenu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: flex-start;
+      }
+
+      .submenu li {
+        left: 0;
+        width: 100%;
+      }
+
+      .submenu #active {
+        width: auto;
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      .submenu.show {
+        max-height: auto;
+        opacity: 1;
+        top: 0;
+        border-bottom: 1px solid white;
+        width: fit-content;
+        overflow-y: auto;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+      }
+
+      .inner-submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #212529;
+        width: auto;
+        z-index: 100;
+        overflow-y: auto;
+        max-height: fit-content;
+      }
+
+      .inner-submenu.show {
+        display: block;
+      }
+
+      .submenu>li {
+        position: relative;
+      }
+
+      #inner-submenu-one,
+      #inner-submenu-two,
+      #inner-submenu-three,
+      #inner-submenu-four {
+        margin-top: 0;
+      }
+
+      .icon {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav {
+        padding: 0 10px;
+      }
+
+      .option li,
+      .optionSecond li {
+        margin-left: 10px;
+      }
+
+      .searchbar {
+        margin-left: 10px;
+      }
+    }
+
+
+    /*--------------------------------------------------------- TERMS AND CONDITION ----------------------------------------------------------------*/
+    /* General Layout */
+    .content-wrapper {
+      display: flex;
+      max-height: 80vh;
+      /* Set a max height to enable scrolling */
+      overflow-y: hidden;
+      /* Prevent scrolling on the wrapper itself */
+      margin-top: 100px;
+    }
+
+    /* Sidebar Styling */
+    .Terms-sidebar {
+      width: 20%;
+      margin: 5px;
+      padding: 20px;
+      background-color: none;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+
+    .Terms-sidebar h3 {
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .Terms-sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .Terms-sidebar li {
+      margin-bottom: 15px;
+    }
+
+    .Terms-sidebar a {
+      text-decoration: none;
+      color: black;
+      font-size: 0.85rem;
+    }
+
+    .Terms-sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Styling */
+    .Terms-content {
+      width: 80%;
+      margin: 20px;
+      padding: 0 20px;
+      padding-left: 30px;
+      max-height: 80vh;
+      /* Set the max height */
+      overflow-y: auto;
+      /* Scroll the content */
+      border-left: 3px solid #000;
+      /* Add a visual divider */
+    }
+
+    /* Black Scrollbar Styling */
+    .Terms-content::-webkit-scrollbar {
+      width: 10px;
+      align-items: left;
+      background-color: #f4f4f4;
+      /* Match with sidebar background */
+    }
+
+    .Terms-content::-webkit-scrollbar-thumb {
+      background-color: #000;
+      /* Black scrollbar */
+    }
+
+    .Terms-content::-webkit-scrollbar-track {
+      background-color: #f4f4f4;
+    }
+
+
+    /*-------------------------------------------------------- FOOTER ------------------------------------------------------*/
+
+    footer {
+      position: relative;
+      background: linear-gradient(to right, #000, #45c8f1);
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 100px;
+      height: 1px;
+      width: 100%;
+      background: #afafb6;
+    }
+
+    footer .content {
+      max-width: 1250px;
+      margin: auto;
+      padding: 30px 40px 40px 40px;
+    }
+
+    footer .content .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+
+    .content .top .logo-details {
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .content .top .media-icons {
+      display: flex;
+    }
+
+    .content .top .media-icons a {
+      height: 40px;
+      width: 40px;
+      margin: 0 8px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      color: #fff;
+      font-size: 17px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .top .media-icons a:nth-child(1) {
+      background: #4267b2;
+    }
+
+    .top .media-icons a:nth-child(1):hover {
+      color: #4267b2;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(2) {
+      background: #1da1f2;
+    }
+
+    .top .media-icons a:nth-child(2):hover {
+      color: #1da1f2;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(3) {
+      background: #e1306c;
+    }
+
+    .top .media-icons a:nth-child(3):hover {
+      color: #e1306c;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(4) {
+      background: #0077b5;
+    }
+
+    .top .media-icons a:nth-child(4):hover {
+      color: #0077b5;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(5) {
+      background: #ff0000;
+    }
+
+    .top .media-icons a:nth-child(5):hover {
+      color: #ff0000;
+      background: #fff;
+    }
+
+    footer .content .link-boxes {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer .content .link-boxes .box {
+      width: calc(100% / 5 - 10px);
+    }
+
+    .content .link-boxes .box .link_name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .link-boxes .box .link_name::before {
+      content: "";
+      position: absolute;
+      /* left: 50%;
+    transform: translateX(-50%); Center the line horizontally */
+      bottom: -5px;
+      /* Position the line directly below the text */
+      height: 2px;
+      width: 5vw;
+      background: #fff;
+    }
+
+    .content .link-boxes .box li {
+      margin: 6px 0;
+      list-style: none;
+    }
+
+    .content .link-boxes .box li a {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: all 0.4s ease;
+    }
+
+    .content .link-boxes .box li a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .content .link-boxes .input-box {
+      margin-right: 55px;
+    }
+
+    .link-boxes .input-box input {
+      height: 40px;
+      width: calc(100% + 55px);
+      outline: none;
+      border: 2px solid #afafb6;
+      background: #140b5c;
+      border-radius: 4px;
+      padding: 0 15px;
+      font-size: 15px;
+      color: #fff;
+      margin-top: 5px;
+    }
+
+    .link-boxes .input-box input::placeholder {
+      color: #afafb6;
+      font-size: 16px;
+    }
+
+    .link-boxes .input-box input[type="button"] {
+      background: #fff;
+      color: #140b5c;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 4px 0;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .input-box input[type="button"]:hover {
+      opacity: 1;
+    }
+
+    footer .bottom-details {
+      width: 100%;
+      background: #0f0844;
+    }
+
+    footer .bottom-details .bottom_text {
+      max-width: 1250px;
+      margin: auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a {
+      font-size: 14px;
+      font-weight: 300;
+      color: #fff;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .bottom-details .bottom_text a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .bottom-details .bottom_text a {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 900px) {
+      footer .content .link-boxes {
+        flex-wrap: wrap;
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 40%;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      footer {
+        position: relative;
+      }
+
+      .content .top .logo-details {
+        font-size: 26px;
+      }
+
+      .content .top .media-icons a {
+        height: 35px;
+        width: 35px;
+        font-size: 14px;
+        line-height: 35px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 3 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 60%;
+      }
+
+      .bottom-details .bottom_text span,
+      .bottom-details .bottom_text a {
+        font-size: 12px;
+      }
+    }
+
+    @media (width: 320px) {
+      footer::before {
+        top: 235px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 321px) and (max-width: 375px) {
+      footer::before {
+        top: 210px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 376px) and (max-width: 425px) {
+      footer::before {
+        top: 175px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 426px) and (max-width: 768px) {
+      footer::before {
+        top: 155px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      footer::before {
+        top: 155px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 9vw;
+      }
+    }
+
+    nav {
+      left: 0px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
-    <!-- Header Section -->
- <!---------------------------------NAVBAR----------------------------------- -->
- <nav>
+  <!-- Header Section -->
+  <!---------------------------------NAVBAR----------------------------------- -->
+  <nav>
     <div class="logo">
-      <a href="Index.html"
-        ><img src="img/agratas-main-logo.png" alt="logo"
-      /></a>
+      <a href="Index.html"><img src="img/agratas-main-logo.png" alt="logo" /></a>
     </div>
     <div class="option">
       <ul class="nav-links">
         <li>
           <a href="#">
-            What we do <span class="arrow fa fa-angle-down"></span
-          ></a>
+            What we do <span class="arrow fa fa-angle-down"></span></a>
           <ul class="submenu">
             <li id="active">
-              <a href="#"
-                >Overview
-                <span
-                  class="arrow fa fa-angle-right right-arrow toggle-submenu"
-                ></span>
-                <span class="tcs-hover"
-                  >Agratas Infotech Private Limited</span
-                >
+              <a href="#">Overview
+                <span class="arrow fa fa-angle-right right-arrow toggle-submenu"></span>
+                <span class="tcs-hover">Agratas Infotech Private Limited</span>
                 <span class="tcs-hover-details">
                   Founded in November 25, 2020. Agratas Infotech is a premier
                   product-based technology <br />
@@ -52,14 +981,12 @@
                   innovative technology.
                   <br />
                   <br />
-                  <strong><u>Our Mission</u></strong
-                  >: To empower by delivering innovative technology solutions
+                  <strong><u>Our Mission</u></strong>: To empower by delivering innovative technology solutions
                   <br />
                   that drive digital transformation and operational
                   excellence. <br />
                   <br />
-                  <strong><u>Our Vision</u></strong
-                  >: To be a Global leader in technology innovation,
+                  <strong><u>Our Vision</u></strong>: To be a Global leader in technology innovation,
                   consistantly <br />
                   delivering Soultions that exceeds our client's expectations
                   and shape the future.
@@ -67,15 +994,16 @@
               </a>
             </li>
             <li id="active">
-              <a href="#"
-                >Industries
-                <span
-                  class="arrow fa fa-angle-right right-arrow toggle-submenu"
-                ></span>
+              <a href="#">Industries
+                <span class="arrow fa fa-angle-right right-arrow toggle-submenu"></span>
               </a>
               <ul class="inner-submenu" id="inner-submenu-one">
-                <a href="banking_finance.html"><li>Banking</li></a>
-                <a href="banking_finance.html"><li>Finance</li></a>
+                <a href="banking_finance.html">
+                  <li>Banking</li>
+                </a>
+                <a href="banking_finance.html">
+                  <li>Finance</li>
+                </a>
                 <li>Digitalization</li>
                 <li>Communications, Media, and Information Services</li>
                 <li>Education</li>
@@ -86,70 +1014,70 @@
               </ul>
             </li>
             <li id="active">
-              <a href="#"
-                >Services
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
+              <a href="#">Services
+                <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
               <ul class="inner-submenu" id="inner-submenu-two">
-                <a href="ArtificialIntelIigence.html"
-                  ><li>Artificial Intelligence</li></a
-                >
-                <a href="cloudArticle.html"><li>Cloud</li></a>
-                <a href="DigitalMarketing.html"
-                  ><li>Digitalization</li></a
-                >
-                <a href="cybersecurity.html"
-                  ><li>Cyber Security</li></a
-                >
-                <a href="web_development.html"
-                  ><li>Web Development</li></a
-                >
-                <a href="mobile_app_development.html"
-                  ><li>Mobile App Development</li></a
-                >
-                <a href="IT_consulting.html"
-                  ><li>IT Consultance</li></a
-                >
-                <a href="Ecommerce.html"
-                  ><li>E-Commerce solutions</li></a
-                >
+                <a href="ArtificialIntelIigence.html">
+                  <li>Artificial Intelligence</li>
+                </a>
+                <a href="cloudArticle.html">
+                  <li>Cloud</li>
+                </a>
+                <a href="DigitalMarketing.html">
+                  <li>Digitalization</li>
+                </a>
+                <a href="cybersecurity.html">
+                  <li>Cyber Security</li>
+                </a>
+                <a href="web_development.html">
+                  <li>Web Development</li>
+                </a>
+                <a href="mobile_app_development.html">
+                  <li>Mobile App Development</li>
+                </a>
+                <a href="IT_consulting.html">
+                  <li>IT Consultance</li>
+                </a>
+                <a href="Ecommerce.html">
+                  <li>E-Commerce solutions</li>
+                </a>
               </ul>
             </li>
             <li id="active">
-              <a href="#"
-                >Product and Platforms
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
+              <a href="#">Product and Platforms
+                <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
               <ul class="inner-submenu" id="inner-submenu-three">
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL ShopApp<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL ERP<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"><li>AIPL SploitWeb</li></a>
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL Hotel Management System<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL ShopApp<sup>TM</sup></li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL ERP<sup>TM</sup></li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL SploitWeb</li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL Hotel Management System<sup>TM</sup></li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>
                     AIPL Customer Intelligence & Insights<sup>TM</sup>
-                  </li></a
-                >
-                <a href="{% url 'dashboard' %}"><li>AIPL ERP on Cloud</li></a>
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL Restaurant Management System<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL College ERP<sup>TM</sup></li></a
-                >
+                  </li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL ERP on Cloud</li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL Restaurant Management System<sup>TM</sup></li>
+                </a>
+                <a href="{% url 'dashboard' %}">
+                  <li>AIPL College ERP<sup>TM</sup></li>
+                </a>
               </ul>
             </li>
             <li id="active">
-              <a href="#"
-                >Research and Innovations
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
+              <a href="#">Research and Innovations
+                <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
               <ul class="inner-submenu" id="inner-submenu-four">
                 <li>AIPL Research</li>
                 <li>AIPL R&D Team</li>
@@ -158,9 +1086,7 @@
           </ul>
         </li>
         <li>
-          <a href="#"
-            >Who are we <span class="arrow fa fa-angle-down"></span
-          ></a>
+          <a href="#">Who are we <span class="arrow fa fa-angle-down"></span></a>
           <ul class="submenu">
             <li id="active">
               <a href="overview.html">Overview</a>
@@ -175,9 +1101,7 @@
           </ul>
         </li>
         <li>
-          <a href="#"
-            >Education <span class="arrow fa fa-angle-down"></span
-          ></a>
+          <a href="#">Education <span class="arrow fa fa-angle-down"></span></a>
           <ul class="submenu">
             <li id="active">
               <a href="internship.html">Internships</a>
@@ -187,9 +1111,7 @@
               <a href="placements.html">Placement</a>
             </li>
             <li>
-              <a href="industrial_training.html"
-                >Industrial Training</a
-              >
+              <a href="industrial_training.html">Industrial Training</a>
             </li>
             <li>
               <a href="techsummit.html">Tech Summit</a>
@@ -214,9 +1136,7 @@
           </ul>
         </li>
         <li>
-          <a href="#"
-            >Newsroom <span class="arrow fa fa-angle-down"></span
-          ></a>
+          <a href="#">Newsroom <span class="arrow fa fa-angle-down"></span></a>
           <ul class="submenu">
             <li id="active">
               <a href="overview.html">Overview</a>
@@ -228,9 +1148,7 @@
           </ul>
         </li>
         <li>
-          <a href="#"
-            >Investors <span class="arrow fa fa-angle-down"></span
-          ></a>
+          <a href="#">Investors <span class="arrow fa fa-angle-down"></span></a>
           <ul class="submenu">
             <li id="active">
               <a href="overview.html">Overview</a>
@@ -250,11 +1168,7 @@
     </div>
     <div class="address-bar-container" id="address-bar-container">
       <div class="address-bar">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search here..."
-        />
+        <input type="text" class="search-input" placeholder="Search here..." />
         <button class="close-btn" id="close-btn">X</button>
       </div>
     </div>
@@ -265,57 +1179,83 @@
     </div>
   </nav>
 
-    <!-- Content Wrapper -->
-    <div class="content-wrapper">
-        <div class="Terms-sidebar">
-            <h4 style="font-weight:bold; font-size:smaller;">Terms and Conditions</h4>
-            <ul>
-                <li><a href="#">Use of Content</a></li>
-                <li><a href="#">Acceptable Website Use</a></li>
-                <li><a href="#">Liability</a></li>
-                <li><a href="#">Disclaimer of Consequential Damages</a></li>
-            </ul>
-        </div>
-
-        <div class="Terms-content">
-            <h1>Terms and Conditions</h1>
-            <p>The terms "We," "Us," "Our," or "Company" refer to Agratas Infotech Pvt Ltd, and "Visitor" or "User" refers to consumers of this website.</p>
-            <p>This document outlines the conditions under which you, the Visitor, may access and use this website ("Website"). By visiting this site, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please refrain from using the Website. Company, including any business divisions, subsidiaries, or associated companies, retains the right to update these Terms and Conditions at any time. You should revisit this page periodically as any updates are binding.</p>
-            
-            <p>This document serves as a legally binding agreement between you and Agratas Infotech Pvt Ltd (both as defined below). By accepting this Privacy Policy, either electronically (e.g., by clicking "I accept") or by using the website, you agree to the terms stated here, which will govern your relationship with Agratas Infotech Pvt Ltd for the use of the website ("Website").</p>
-            <p>This policy is published in compliance with the Information Technology Act, 2000, specifically the rules regarding reasonable security practices and the handling of sensitive personal data. It governs how we collect, use, store, and transfer your information.</p>
-            <p>By using the Website or providing your information, you agree to the collection, storage, processing, and transfer of both your personal and non-personal data in accordance with this Privacy Policy. You further agree that this will not cause any loss or harm to you or others.</p>
-
-            <h2 id="useof">Use of Content</h2>
-            <p>All logos, brands, trademarks, headings, labels, names, and other identifiers seen on this website are the property of the Company or are licensed for use by its associates. Reproduction, distribution, or transmission of the Website content in any form is prohibited without prior written permission from the relevant organization. Modifying, selling, or reproducing the website's content for public or commercial purposes without permission is forbidden.</p>
- 
-            <h2 id="acceptable">Acceptable Website Use</h2>
-            <h4 id="security_rules">(A) Security Rules</h2>
-            <p>Visitor must not attempt to compromise the security of the Website, including (but not limited to):</p> 
-            <p>Accessing data not intended for the user or trying to gain unauthorized access.</p>
-            <p>Probing, scanning, or testing the website's systems or security without authorization.</p>
-            <p>Interfering with the service through actions such as introducing viruses, overloading, or flooding the Website.</p>
-            <p>Sending unsolicited emails, including advertisements or promotions.</p>
-            <p>Any violation may result in legal action, and the Company reserves the right to cooperate with authorities as needed.</p>
-
-            <h4 id="general_rules">(B) General Rules</h2>
-            <p>Visitors are not permitted to upload or transmit materials that:</p> 
-            <p>Could lead to criminal conduct or violate applicable laws.</p>
-            <p>Infringe the rights or property or personal rights of others.</p>
-            <p>Are defamatory, obscene, offensive, threatening, or otherwise harmful.</p>
-            <p>Users agree to indemnify the Company, its officers, employees, and agents from any claims, liabilities, or expenses arising from their use of the Website or any breach of these Terms and Conditions.</p>
-
-            <h2 id="Liability">Liability</h2>
-            <p>The Company stipulates that the Company and its officers, directors, employees, or suppliers shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use the Website or services. This includes, but is not limited to, losses from data, profit, savings, goodwill, or service interruptions. In no event shall the Company's total liability exceed any amount the User has paid to the Company in connection with the issue in action.</p>
-
-            <h2 id="disclaimer">Disclaimer of Consequential Damages</h2>
-            <p>The Company and its associated organizations are not responsible for any damages, including but not limited to lost profits, hardware damage, data loss, or business interruption, that result from the use or inability to use the website. This applies regardless of the legal basis for the claim, and even if the possibility of such damages has been advised.</p>
-        </div>
-    
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <div class="Terms-sidebar">
+      <h4 style="font-weight:bold; font-size:smaller;">Terms and Conditions</h4>
+      <ul>
+        <li><a href="#">Use of Content</a></li>
+        <li><a href="#">Acceptable Website Use</a></li>
+        <li><a href="#">Liability</a></li>
+        <li><a href="#">Disclaimer of Consequential Damages</a></li>
+      </ul>
     </div>
 
-    <!--------------------------------------------------- FOOTER ---------------------------------------->
-     <!--------------------------------------------------- FOOTER ---------------------------------------->
+    <div class="Terms-content">
+      <h1>Terms and Conditions</h1>
+      <p>The terms "We," "Us," "Our," or "Company" refer to Agratas Infotech Pvt Ltd, and "Visitor" or "User" refers to
+        consumers of this website.</p>
+      <p>This document outlines the conditions under which you, the Visitor, may access and use this website
+        ("Website"). By visiting this site, you agree to be bound by these Terms and Conditions. If you do not agree to
+        these terms, please refrain from using the Website. Company, including any business divisions, subsidiaries, or
+        associated companies, retains the right to update these Terms and Conditions at any time. You should revisit
+        this page periodically as any updates are binding.</p>
+
+      <p>This document serves as a legally binding agreement between you and Agratas Infotech Pvt Ltd (both as defined
+        below). By accepting this Privacy Policy, either electronically (e.g., by clicking "I accept") or by using the
+        website, you agree to the terms stated here, which will govern your relationship with Agratas Infotech Pvt Ltd
+        for the use of the website ("Website").</p>
+      <p>This policy is published in compliance with the Information Technology Act, 2000, specifically the rules
+        regarding reasonable security practices and the handling of sensitive personal data. It governs how we collect,
+        use, store, and transfer your information.</p>
+      <p>By using the Website or providing your information, you agree to the collection, storage, processing, and
+        transfer of both your personal and non-personal data in accordance with this Privacy Policy. You further agree
+        that this will not cause any loss or harm to you or others.</p>
+
+      <h2 id="useof">Use of Content</h2>
+      <p>All logos, brands, trademarks, headings, labels, names, and other identifiers seen on this website are the
+        property of the Company or are licensed for use by its associates. Reproduction, distribution, or transmission
+        of the Website content in any form is prohibited without prior written permission from the relevant
+        organization. Modifying, selling, or reproducing the website's content for public or commercial purposes without
+        permission is forbidden.</p>
+
+      <h2 id="acceptable">Acceptable Website Use</h2>
+      <h4 id="security_rules">(A) Security Rules</h2>
+        <p>Visitor must not attempt to compromise the security of the Website, including (but not limited to):</p>
+        <p>Accessing data not intended for the user or trying to gain unauthorized access.</p>
+        <p>Probing, scanning, or testing the website's systems or security without authorization.</p>
+        <p>Interfering with the service through actions such as introducing viruses, overloading, or flooding the
+          Website.</p>
+        <p>Sending unsolicited emails, including advertisements or promotions.</p>
+        <p>Any violation may result in legal action, and the Company reserves the right to cooperate with authorities as
+          needed.</p>
+
+        <h4 id="general_rules">(B) General Rules</h2>
+          <p>Visitors are not permitted to upload or transmit materials that:</p>
+          <p>Could lead to criminal conduct or violate applicable laws.</p>
+          <p>Infringe the rights or property or personal rights of others.</p>
+          <p>Are defamatory, obscene, offensive, threatening, or otherwise harmful.</p>
+          <p>Users agree to indemnify the Company, its officers, employees, and agents from any claims, liabilities, or
+            expenses arising from their use of the Website or any breach of these Terms and Conditions.</p>
+
+          <h2 id="Liability">Liability</h2>
+          <p>The Company stipulates that the Company and its officers, directors, employees, or suppliers shall not be
+            liable for any direct, indirect, incidental, special, or consequential damages arising from the use or
+            inability to use the Website or services. This includes, but is not limited to, losses from data, profit,
+            savings, goodwill, or service interruptions. In no event shall the Company's total liability exceed any
+            amount the User has paid to the Company in connection with the issue in action.</p>
+
+          <h2 id="disclaimer">Disclaimer of Consequential Damages</h2>
+          <p>The Company and its associated organizations are not responsible for any damages, including but not limited
+            to lost profits, hardware damage, data loss, or business interruption, that result from the use or inability
+            to use the website. This applies regardless of the legal basis for the claim, and even if the possibility of
+            such damages has been advised.</p>
+    </div>
+
+  </div>
+
+  <!--------------------------------------------------- FOOTER ---------------------------------------->
+  <!--------------------------------------------------- FOOTER ---------------------------------------->
   <footer>
     <div class="content">
       <div class="top">
@@ -361,8 +1301,7 @@
           <li><a href="#">Internet of Things</a></li>
         </ul>
         <ul class="box input-box">
-            <form 
-            style="
+          <form style="
               background: transparent;
               padding: 0px;
               border-radius: 0px;
@@ -370,13 +1309,12 @@
               width: auto;
               max-width: unset;
               box-sizing: unset;
-            "
-            class="footer-form" action="{% url 'subscribe' %}" method="post">
-              {% csrf_token %}
-              <li class="link_name">Subscribe</li>
-              <li><input type="email" name="subscribe" placeholder="Enter your email"></li>
-              <li><input type="submit"></li>
-            </form>
+            " class="footer-form" action="{% url 'subscribe' %}" method="post">
+
+            <li class="link_name">Subscribe</li>
+            <li><input type="email" name="subscribe" placeholder="Enter your email"></li>
+            <li><input type="submit"></li>
+          </form>
         </ul>
       </div>
     </div>
@@ -391,7 +1329,224 @@
       </div>
     </div>
   </footer>
-      <script src="Script.js"></script>
-      <script src="nav_configuration.js"></script>
+
+  <script>
+    //-------------------------------------- NAVBAR ----------------------------------------
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      const option = document.querySelector(".option");
+      const navbar = document.querySelector("nav");
+      let isNavGrey = false;
+  
+      console.log("Document loaded and script initialized.");
+  
+      // Toggle hamburger and navigation options
+      if (hamburger && option && navbar) {
+        hamburger.addEventListener("click", () => {
+          console.log("Hamburger menu clicked");
+          hamburger.classList.toggle("active");
+          option.classList.toggle("active");
+  
+          // Check if the hamburger menu is active to change the navbar and menu color
+          if (hamburger.classList.contains("active")) {
+            navbar.classList.add("scrolled");
+            option.classList.add("scrolled");
+            isNavGrey = true;
+            console.log("Navbar and menu color changed to grey when menu opened");
+          } else {
+            navbar.classList.remove("scrolled");
+            option.classList.remove("scrolled");
+            isNavGrey = false;
+            console.log("Navbar and menu color reset when menu closed");
+          }
+        });
+  
+        window.addEventListener("scroll", function () {
+          const scrollableHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const scrolledPercentage = (window.scrollY / scrollableHeight) * 100;
+  
+          console.log(`Scrolled percentage: ${scrolledPercentage}`);
+  
+          if (scrolledPercentage >= 1 && !isNavGrey) {
+            navbar.classList.add("scrolled");
+            option.classList.add("scrolled");
+            isNavGrey = true;
+            console.log("Navbar and menu color changed on scroll");
+          } else if (
+            scrolledPercentage < 1 &&
+            isNavGrey &&
+            !hamburger.classList.contains("active")
+          ) {
+            // Ensure the navbar and menu color reset only if the menu is not active
+            navbar.classList.remove("scrolled");
+            option.classList.remove("scrolled");
+            isNavGrey = false;
+            console.log("Navbar and menu color reset on scroll");
+          }
+        });
+      }
+  
+      // Handle clicks on main menu items to toggle submenus
+      document.querySelectorAll(".nav-links > li > a").forEach(function (item) {
+        item.addEventListener("click", function (event) {
+          event.preventDefault();
+          const parentLi = this.parentNode;
+          const thisSubmenu = parentLi.querySelector(".submenu");
+          navbar.classList.add("scrolled");
+          option.classList.add("scrolled");
+  
+          // Close all other submenus
+          document.querySelectorAll(".submenu").forEach((submenu) => {
+            if (submenu !== thisSubmenu) {
+              submenu.classList.remove("show");
+              submenu.style.maxHeight = null;
+              submenu.style.opacity = 0;
+              const arrow =
+                submenu.previousElementSibling.querySelector(".arrow");
+              if (arrow) arrow.classList.remove("down");
+            }
+          });
+  
+          // Toggle the current submenu
+          const isSubmenuVisible = thisSubmenu.classList.toggle("show");
+          thisSubmenu.style.maxHeight = isSubmenuVisible
+            ? thisSubmenu.scrollHeight + "px"
+            : 0;
+          thisSubmenu.style.opacity = isSubmenuVisible ? 1 : 0;
+          const arrow =
+            thisSubmenu.previousElementSibling.querySelector(".arrow");
+          if (arrow) arrow.classList.toggle("down", isSubmenuVisible);
+  
+          console.log(
+            `Submenu for '${this.textContent.trim()}' toggled: `,
+            isSubmenuVisible
+          );
+        });
+      });
+  
+      // Handle clicks on submenu items to toggle inner-submenus
+      document.querySelectorAll(".submenu > li").forEach(function (item) {
+        const innerSubmenu = item.querySelector(".inner-submenu");
+  
+        item.addEventListener("click", function (event) {
+          event.stopPropagation();
+  
+          // Close all other inner submenus except this one
+          document.querySelectorAll(".inner-submenu").forEach(function (menu) {
+            if (menu !== innerSubmenu) {
+              menu.style.display = "none";
+            }
+          });
+  
+          // Toggle the display of this inner submenu
+          if (innerSubmenu) {
+            innerSubmenu.style.display =
+              innerSubmenu.style.display === "none" ? "block" : "none";
+            console.log(
+              `Inner-submenu for '${item.textContent.trim()}' toggled: `,
+              innerSubmenu.style.display
+            );
+  
+            // Toggle the icon from + to - and vice versa
+            const icon = item.querySelector(".icon");
+            if (icon) {
+              icon.textContent =
+                innerSubmenu.style.display === "block" ? "-" : "+";
+            }
+          }
+        });
+      });
+  
+      // Initially hide all inner-submenus
+      document.querySelectorAll(".inner-submenu").forEach(function (menu) {
+        menu.style.display = "none";
+      });
+  
+      // Close all menus when clicking outside of the navbar
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest("nav")) {
+          closeAllMenus();
+          console.log("Clicked outside navbar, all menus closed.");
+        }
+      });
+  
+      function closeAllMenus() {
+        document
+          .querySelectorAll(".submenu, .inner-submenu")
+          .forEach(function (menu) {
+            menu.classList.remove("show");
+            menu.style.display = "none";
+            const arrow = menu.previousElementSibling.querySelector(".arrow");
+            if (arrow) arrow.classList.remove("down");
+          });
+        option.classList.remove("active");
+        navbar.classList.remove("scrolled");
+        hamburger.classList.remove("active");
+        isNavGrey = false;
+        console.log("All menus and submenu settings have been reset.");
+      }
+  
+      // Additional listeners for address bar interactions
+      const addressBarContainer = document.getElementById(
+        "address-bar-container"
+      );
+      const closeBtn = document.getElementById("close-btn");
+      const searchIcon = document.querySelector(".searchbar i");
+  
+      searchIcon.addEventListener("click", () => {
+        addressBarContainer.style.display = "block";
+        closeAllMenus();
+        console.log("Search icon clicked, address bar displayed.");
+      });
+  
+      closeBtn.addEventListener("click", () => {
+        addressBarContainer.style.display = "none";
+        console.log("Close button clicked, address bar hidden.");
+      });
+  
+      // Toggle hamburger icon based on screen width
+      function toggleMenuIcons() {
+        const menuItems = document.querySelectorAll(".nav-links > li");
+  
+        menuItems.forEach((item) => {
+          const submenu = item.querySelector(".submenu");
+  
+          if (submenu) {
+            submenu.style.padding =
+              window.innerWidth <= 768 ? "16px 20px 20px 20px" : "0% 50% 95% 50%";
+  
+            // Check if inner-submenu icons exist and remove them if screen size is >= 768px
+            const innerSubmenuIcons = item.querySelectorAll(".icon");
+            if (window.innerWidth >= 768 && innerSubmenuIcons.length > 0) {
+              innerSubmenuIcons.forEach((icon) => {
+                icon.remove();
+              });
+            }
+  
+            // Add inner-submenu icons if screen size is < 768px and icons don't already exist
+            if (window.innerWidth < 768 && innerSubmenuIcons.length === 0) {
+              // const icon = document.createElement("span");
+              // icon.classList.add("icon");
+              // icon.textContent = "+"; // Initial icon state
+              // item.appendChild(icon);
+            }
+  
+            // Set initial arrow state for closed submenus
+            const arrow = item.querySelector(".arrow");
+            if (arrow && !submenu.classList.contains("show")) {
+              arrow.classList.remove("down");
+            }
+          }
+        });
+      }
+  
+      toggleMenuIcons(); // Initial call to set icons based on initial screen width
+      window.addEventListener("resize", toggleMenuIcons); // Call on window resize
+    });
+  </script>
+  <script src="nav_configuration.js"></script>
+  
 </body>
+
 </html>

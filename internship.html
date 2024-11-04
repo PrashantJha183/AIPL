@@ -1,523 +1,1666 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Internship Opportunities at Agratas Infotech - Apply Now!</title>
-    <meta name="description" content="Join Agratas Infotech for exciting internship opportunities! Get cool swag, placement assistance, and compete for prizes over ₹50,000. Apply now!">
-    
-    <!-- Include Google Fonts and Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="Style.css">
 
-    <style>
-        .optional {
-            color: red;
-            font-weight: bold;
-        }
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
-        }
-        .wrapper-content {
-            flex: 1;
-        }
-        nav {
-            left: 0;
-            z-index: 1000;
-        }
-        .intern-name {
-            text-align: right;
-            color: #00094B;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Internship Opportunities at Agratas Infotech - Apply Now!</title>
+  <meta name="description"
+    content="Join Agratas Infotech for exciting internship opportunities! Get cool swag, placement assistance, and compete for prizes over ₹50,000. Apply now!">
+
+  <!-- Include Google Fonts and Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <style>
+    /* -------------------------------------------- NAVBAR ------------------------------------------- */
+    nav {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      height: 12vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-weight: 400;
+      font-size: 1pc;
+      line-height: 1.5;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Example CSS */
+    nav.scrolled {
+      background-color: #212529;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      margin-top: 1%;
+    }
+
+    .logo img {
+      height: 10vh;
+      width: 15vw;
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Option css */
+    .option {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+    }
+
+    .nav-links-background {
+      background-color: #000;
+      width: 100vw;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links .submenu .show {
+      left: 0;
+    }
+
+    .option li {
+      margin-left: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .option a {
+      font-size: 1rem;
+      color: #9e9fa3;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+    .arrow {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.down {
+      transform: rotate(180deg);
+    }
+
+    /* Submenus css */
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #212529;
+      padding: 0% 50% 95% 50%;
+      z-index: 1;
+      width: 100vw;
+      top: 66px;
+      transition: top 0.9s ease-in;
+      left: 0;
+    }
+
+    .submenu #active:hover {
+      background-color: black;
+      color: #fff;
+    }
+
+    .submenu.show {
+      display: block;
+      left: 0;
+      width: 100vw;
+    }
+
+    .submenu li {
+      list-style: none;
+      padding: 2% 0% 1% 0%;
+      border-bottom: 1px solid white;
+      width: 18vw;
+      text-align: left;
+    }
+
+    .option li.active>ul {
+      display: block;
+    }
+
+    /* Menu of submenu */
+    .tcs-hover {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 120%;
+      padding: 0.5rem;
+      width: 100vw;
+      font-size: 2rem;
+      color: #fff;
+      height: auto;
+    }
+
+    #active:hover .tcs-hover {
+      display: inline-block;
+    }
+
+    .tcs-hover-details {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 120%;
+      padding: 0.5rem;
+      width: 80vw;
+      height: auto;
+    }
+
+    #active:hover .tcs-hover-details {
+      display: block;
+    }
+
+    .inner-submenu {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 110%;
+      background-color: #212529;
+      list-style: none;
+      padding: 0% 0% 0% 0%;
+      z-index: 1000;
+      width: auto;
+    }
+
+    #inner-submenu-one {
+      margin-top: -18%;
+    }
+
+    #inner-submenu-two {
+      margin-top: -40%;
+    }
+
+    #inner-submenu-three {
+      margin-top: -62%;
+    }
+
+    #inner-submenu-four {
+      margin-top: -83%;
+    }
+
+    .inner-submenu li {
+      border: none;
+      color: none;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inner-submenu li:hover {
+      background-color: none;
+      border-bottom: 1px solid white;
+      width: fit-content;
+    }
+
+    .submenu li:hover>.inner-submenu,
+    .submenu li:focus>.inner-submenu li {
+      display: block;
+    }
+
+    .inner-submenu li:hover>ul {
+      display: block;
+    }
+
+    .arrow-right {
+      margin-right: auto;
+    }
+
+    /* Searchbar css */
+    .searchbar {
+      margin-right: 20px;
+    }
+
+    .searchbar i {
+      height: auto;
+      width: auto;
+      cursor: pointer;
+      margin: auto;
+    }
+
+    /* CSS for the address bar */
+    .address-bar-container {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 12vh;
+      background-color: #212529;
+      transition: top 0.2s ease-in-out;
+      z-index: 1000;
+      display: none;
+    }
+
+    .address-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .address-bar input {
+      caret-color: green;
+      outline: none;
+      padding: 10px;
+      font-size: 1.5rem;
+      background: transparent;
+      border-bottom: 2px solid white;
+    }
+
+    .search-input {
+      width: 80vw;
+      padding: 5px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .close-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* Hamburger css */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .hamburger .line {
+      background-color: #fff;
+      width: 25px;
+      height: 3px;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .hamburger.active .line-1 {
+      transform: rotate(45deg) translate(5px, 10px);
+    }
+
+    .hamburger.active .line-2 {
+      width: 0px;
+    }
+
+    .hamburger.active .line-3 {
+      transform: rotate(-45deg) translate(5px, -10px);
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .logo img {
+        width: 40vw;
+      }
+
+      .address-bar-container {
+        height: 12vh;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .option {
+        display: block;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        transition: right 0.8s ease-in-out;
+        overflow-y: auto;
+      }
+
+      .option.scrolled {
+        right: -100%;
+        background-color: #212529;
+        transition: 0.8s ease;
+      }
+
+      .option.active {
+        right: 0;
+        z-index: 100;
+      }
+
+      .option ul {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .option li {
+        margin: 10px 20px;
+      }
+
+      .option ul li {
+        border-bottom: 1px solid white;
+        width: auto;
+      }
+
+      .arrow {
+        margin-left: auto;
+      }
+
+      .arrow.down {
+        transform: rotate(180deg);
+        transition: 0.1s ease;
+      }
+
+      .searchbar {
+        margin: 10px 20px;
+      }
+
+      .searchbar i {
+        height: 3vh;
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+      }
+
+      .submenu {
+        left: 0;
+        position: relative;
+        width: auto;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+      }
+
+      .submenu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: flex-start;
+      }
+
+      .submenu li {
+        left: 0;
+        width: 100%;
+      }
+
+      .submenu #active {
+        width: auto;
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      .submenu.show {
+        max-height: auto;
+        opacity: 1;
+        top: 0;
+        border-bottom: 1px solid white;
+        width: fit-content;
+        overflow-y: auto;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+      }
+
+      .inner-submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #212529;
+        width: auto;
+        z-index: 100;
+        overflow-y: auto;
+        max-height: fit-content;
+      }
+
+      .inner-submenu.show {
+        display: block;
+      }
+
+      .submenu>li {
+        position: relative;
+      }
+
+      #inner-submenu-one,
+      #inner-submenu-two,
+      #inner-submenu-three,
+      #inner-submenu-four {
+        margin-top: 0;
+      }
+
+      .icon {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav {
+        padding: 0 10px;
+      }
+
+      .option li,
+      .optionSecond li {
+        margin-left: 10px;
+      }
+
+      .searchbar {
+        margin-left: 10px;
+      }
+    }
+
+    /*-------------------------------------------------------- FOOTER ------------------------------------------------------*/
+
+    footer {
+      position: relative;
+      background: linear-gradient(to right, #000, #45c8f1);
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 100px;
+      height: 1px;
+      width: 100%;
+      background: #afafb6;
+    }
+
+    footer .content {
+      max-width: 1250px;
+      margin: auto;
+      padding: 30px 40px 40px 40px;
+    }
+
+    footer .content .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+
+    .content .top .logo-details {
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .content .top .media-icons {
+      display: flex;
+    }
+
+    .content .top .media-icons a {
+      height: 40px;
+      width: 40px;
+      margin: 0 8px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      color: #fff;
+      font-size: 17px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .top .media-icons a:nth-child(1) {
+      background: #4267b2;
+    }
+
+    .top .media-icons a:nth-child(1):hover {
+      color: #4267b2;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(2) {
+      background: #1da1f2;
+    }
+
+    .top .media-icons a:nth-child(2):hover {
+      color: #1da1f2;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(3) {
+      background: #e1306c;
+    }
+
+    .top .media-icons a:nth-child(3):hover {
+      color: #e1306c;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(4) {
+      background: #0077b5;
+    }
+
+    .top .media-icons a:nth-child(4):hover {
+      color: #0077b5;
+      background: #fff;
+    }
+
+    .top .media-icons a:nth-child(5) {
+      background: #ff0000;
+    }
+
+    .top .media-icons a:nth-child(5):hover {
+      color: #ff0000;
+      background: #fff;
+    }
+
+    footer .content .link-boxes {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer .content .link-boxes .box {
+      width: calc(100% / 5 - 10px);
+    }
+
+    .content .link-boxes .box .link_name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .link-boxes .box .link_name::before {
+      content: "";
+      position: absolute;
+      /* left: 50%;
+    transform: translateX(-50%); Center the line horizontally */
+      bottom: -5px;
+      /* Position the line directly below the text */
+      height: 2px;
+      width: 5vw;
+      background: #fff;
+    }
+
+    .content .link-boxes .box li {
+      margin: 6px 0;
+      list-style: none;
+    }
+
+    .content .link-boxes .box li a {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: all 0.4s ease;
+    }
+
+    .content .link-boxes .box li a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .content .link-boxes .input-box {
+      margin-right: 55px;
+    }
+
+    .link-boxes .input-box input {
+      height: 40px;
+      width: calc(100% + 55px);
+      outline: none;
+      border: 2px solid #afafb6;
+      background: #140b5c;
+      border-radius: 4px;
+      padding: 0 15px;
+      font-size: 15px;
+      color: #fff;
+      margin-top: 5px;
+    }
+
+    .link-boxes .input-box input::placeholder {
+      color: #afafb6;
+      font-size: 16px;
+    }
+
+    .link-boxes .input-box input[type="button"] {
+      background: #fff;
+      color: #140b5c;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 4px 0;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .input-box input[type="button"]:hover {
+      opacity: 1;
+    }
+
+    footer .bottom-details {
+      width: 100%;
+      background: #0f0844;
+    }
+
+    footer .bottom-details .bottom_text {
+      max-width: 1250px;
+      margin: auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a {
+      font-size: 14px;
+      font-weight: 300;
+      color: #fff;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .bottom-details .bottom_text a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .bottom-details .bottom_text a {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 900px) {
+      footer .content .link-boxes {
+        flex-wrap: wrap;
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 40%;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      footer {
+        position: relative;
+      }
+
+      .content .top .logo-details {
+        font-size: 26px;
+      }
+
+      .content .top .media-icons a {
+        height: 35px;
+        width: 35px;
+        font-size: 14px;
+        line-height: 35px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 3 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 60%;
+      }
+
+      .bottom-details .bottom_text span,
+      .bottom-details .bottom_text a {
+        font-size: 12px;
+      }
+    }
+
+    @media (width: 320px) {
+      footer::before {
+        top: 235px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 321px) and (max-width: 375px) {
+      footer::before {
+        top: 210px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 376px) and (max-width: 425px) {
+      footer::before {
+        top: 175px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 426px) and (max-width: 768px) {
+      footer::before {
+        top: 155px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 25vw;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      footer::before {
+        top: 155px;
+      }
+
+      footer .content .top {
+        flex-direction: column;
+      }
+
+      .content .top .media-icons {
+        margin-top: 16px;
+      }
+
+      footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+      }
+
+      footer .content .link-boxes .input-box {
+        width: 100%;
+      }
+
+      .link-boxes .box .link_name::before {
+        width: 9vw;
+      }
+    }
+
+    /*------------------------------------------------------------- INTENRHIP ---------------------------------------------------------------*/
+
+    .optional {
+      color: red;
+      font-weight: bold;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+    .wrapper-content {
+      flex: 1;
+    }
+
+    nav {
+      left: 0;
+      z-index: 1000;
+    }
+
+    .intern-name {
+      text-align: right;
+      color: #00094B;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .intership-body {
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .header {
+      background-color: #004085;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    /* Form Section */
+    .form-container {
+      background-color: white;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #004085;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      /* Ensures the form wraps properly on smaller screens */
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      flex: 1;
+      margin-right: 10px;
+      min-width: 45%;
+      /* Ensures each input field has a minimum width */
+    }
+
+    .input-group:last-child {
+      margin-right: 0;
+    }
+
+    /* Ensure the input fields fill the container properly */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+      /* Ensures padding and border are included in the element's width */
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="url"]:focus,
+    select:focus {
+      border-color: #004085;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 64, 133, 0.5);
+    }
+
+    .optional {
+      color: red;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #004085;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .submit-btn i {
+      margin-right: 8px;
+      /* Adds space between the icon and text */
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      background-color: #f1f1f1;
+      padding: 50px 0;
+    }
+
+    .blog-section h2 {
+      font-size: 28px;
+      color: #004085;
+    }
+
+    .experience-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      /* Adds more space between the items */
+      padding: 0 20px;
+    }
+
+    .experience-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 300px;
+      /* Restrict the maximum width of each experience box */
+      margin: 0 auto;
+      /* Centers the experience-item */
+    }
+
+    .experience-item img {
+      max-width: 100%;
+      max-height: 250px;
+      width: auto;
+      height: auto;
+      border-radius: 3%;
+      margin-bottom: 15px;
+    }
+
+    .intern-name {
+      color: #004085;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Perks Section */
+    .perks-section {
+      padding: 40px;
+      background-color: #e9ecef;
+      text-align: center;
+    }
+
+    .perks-section h2 {
+      font-size: 28px;
+      color: #004085;
+      margin-bottom: 20px;
+    }
+
+    .perks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .perks-list li {
+      font-size: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ced4da;
+      color: #333;
+    }
+
+    .perks-list li strong {
+      color: #004085;
+    }
+
+    /* Image Background */
+    .image-overlay {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      /* Increase the height to show more of the image */
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .image-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Keeps the image ratio and ensures it covers the entire container */
+      margin-top: 0;
+      /* Remove any top margin to show the image fully */
+    }
+
+    /* Footer and Navbar already handled by Django */
+
+    /* "Know More About This Opportunity" Section */
+    .know-more-section {
+      background-color: #f5f5f5;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .know-more-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .know-more-section h2 {
+      font-size: 28px;
+      color: #004085;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .know-more-content p {
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 15px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .know-more-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .know-more-content ul li {
+      font-size: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+      color: #004085;
+      transition: color 0.3s ease;
+    }
+
+    .know-more-content ul li:last-child {
+      border-bottom: none;
+    }
+
+    .know-more-content ul li:hover {
+      color: #007bff;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body class="internship-body">
-    <div class="wrapper">
-        <!-- Header Section -->
-   <!---------------------------------NAVBAR----------------------------------- -->
-   <nav>
-    <div class="logo">
-      <a href="Index.html"
-        ><img src="img/agratas-main-logo.png" alt="logo"
-      /></a>
-    </div>
-    <div class="option">
-      <ul class="nav-links">
-        <li>
-          <a href="#">
-            What we do <span class="arrow fa fa-angle-down"></span
-          ></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="#"
-                >Overview
-                <span
-                  class="arrow fa fa-angle-right right-arrow toggle-submenu"
-                ></span>
-                <span class="tcs-hover"
-                  >Agratas Infotech Private Limited</span
-                >
-                <span class="tcs-hover-details">
-                  Founded in November 25, 2020. Agratas Infotech is a premier
-                  product-based technology <br />
-                  company headquatered in Ocean Plaza, Sector 18 , Noida. We
-                  specialized to develop <br />
-                  cutting edge software products tailored for Industries such
-                  as Healthcare, Finance <br />
-                  Retails, etc. Our mission is to empower Businesses by
-                  enhancing and fostering operational <br />
-                  efficiency and fostering digital transformation through
-                  innovative technology.
-                  <br />
-                  <br />
-                  <strong><u>Our Mission</u></strong
-                  >: To empower by delivering innovative technology solutions
-                  <br />
-                  that drive digital transformation and operational
-                  excellence. <br />
-                  <br />
-                  <strong><u>Our Vision</u></strong
-                  >: To be a Global leader in technology innovation,
-                  consistantly <br />
-                  delivering Soultions that exceeds our client's expectations
-                  and shape the future.
-                </span>
-              </a>
-            </li>
-            <li id="active">
-              <a href="#"
-                >Industries
-                <span
-                  class="arrow fa fa-angle-right right-arrow toggle-submenu"
-                ></span>
-              </a>
-              <ul class="inner-submenu" id="inner-submenu-one">
-                <a href="banking_finance.html"><li>Banking</li></a>
-                <a href="banking_finance.html"><li>Finance</li></a>
-                <li>Digitalization</li>
-                <li>Communications, Media, and Information Services</li>
-                <li>Education</li>
-                <li>Supply Chain Management</li>
-                <li>High Tech</li>
-                <li>Life Sciences</li>
-                <li>Open Sourcing</li>
-              </ul>
-            </li>
-            <li id="active">
-              <a href="#"
-                >Services
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
-              <ul class="inner-submenu" id="inner-submenu-two">
-                <a href="ArtificialIntelIigence.html"
-                  ><li>Artificial Intelligence</li></a
-                >
-                <a href="cloudArticle.html"><li>Cloud</li></a>
-                <a href="DigitalMarketing.html"
-                  ><li>Digitalization</li></a
-                >
-                <a href="cybersecurity.html"
-                  ><li>Cyber Security</li></a
-                >
-                <a href="web_development.html"
-                  ><li>Web Development</li></a
-                >
-                <a href="mobile_app_development.html"
-                  ><li>Mobile App Development</li></a
-                >
-                <a href="IT_consulting.html"
-                  ><li>IT Consultance</li></a
-                >
-                <a href="Ecommerce.html"
-                  ><li>E-Commerce solutions</li></a
-                >
-              </ul>
-            </li>
-            <li id="active">
-              <a href="#"
-                >Product and Platforms
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
-              <ul class="inner-submenu" id="inner-submenu-three">
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL ShopApp<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL ERP<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"><li>AIPL SploitWeb</li></a>
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL Hotel Management System<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>
-                    AIPL Customer Intelligence & Insights<sup>TM</sup>
-                  </li></a
-                >
-                <a href="{% url 'dashboard' %}"><li>AIPL ERP on Cloud</li></a>
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL Restaurant Management System<sup>TM</sup></li></a
-                >
-                <a href="{% url 'dashboard' %}"
-                  ><li>AIPL College ERP<sup>TM</sup></li></a
-                >
-              </ul>
-            </li>
-            <li id="active">
-              <a href="#"
-                >Research and Innovations
-                <span class="arrow fa fa-angle-right" id="right-arrow"></span
-              ></a>
-              <ul class="inner-submenu" id="inner-submenu-four">
-                <li>AIPL Research</li>
-                <li>AIPL R&D Team</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"
-            >Who are we <span class="arrow fa fa-angle-down"></span
-          ></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="overview.html">Overview</a>
-            </li>
-            <li><a href="impact.html">Impact</a></li>
-            <li>
-              <a href="leadership.html">Leadership</a>
-            </li>
-            <li>
-              <a href="testimonials.html">Testimonial</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"
-            >Education <span class="arrow fa fa-angle-down"></span
-          ></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="internship.html">Internships</a>
-            </li>
-            <li><a href="AgratasiaHackForm.html">Hackathons</a></li>
-            <li>
-              <a href="placements.html">Placement</a>
-            </li>
-            <li>
-              <a href="industrial_training.html"
-                >Industrial Training</a
-              >
-            </li>
-            <li>
-              <a href="techsummit.html">Tech Summit</a>
-            </li>
-            <li>
-              <a href="FDP.html">FDP</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Careers <span class="arrow fa fa-angle-down"></span></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="overview.html">Overview</a>
-            </li>
-            <li><a href="maintenance.html">Internships</a></li>
-            <li><a href="maintenance.html">Developers</a></li>
-            <li><a href="maintenance.html">Regional Partners</a></li>
-            <li>
-              <a href="maintenance.html">Management Employees</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"
-            >Newsroom <span class="arrow fa fa-angle-down"></span
-          ></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="overview.html">Overview</a>
-            </li>
-            <li><a href="maintenance.html">Press release</a></li>
-            <li><a href="maintenance.html">News alerts</a></li>
-            <li><a href="maintenance.html">Analyst recognition</a></li>
-            <li><a href="maintenance.html">Media kit</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"
-            >Investors <span class="arrow fa fa-angle-down"></span
-          ></a>
-          <ul class="submenu">
-            <li id="active">
-              <a href="overview.html">Overview</a>
-            </li>
-            <li><a href="maintenance.html">Manage Commentary</a></li>
-            <li><a href="maintenance.html">Financials</a></li>
-            <li><a href="maintenance.html">News and Events</a></li>
-            <li><a href="maintenance.html">ESG</a></li>
-            <li><a href="maintenance.html">Resources</a></li>
-          </ul>
-        </li>
-        <li><a href="maintenance.html">AIPL worldwide</a></li>
-      </ul>
-    </div>
-    <div class="searchbar">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    <div class="address-bar-container" id="address-bar-container">
-      <div class="address-bar">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search here..."
-        />
-        <button class="close-btn" id="close-btn">X</button>
+  <div class="wrapper">
+    <!-- Header Section -->
+    <!---------------------------------NAVBAR----------------------------------- -->
+    <nav>
+      <div class="logo">
+        <a href="Index.html"><img src="img/agratas-main-logo.png" alt="logo" /></a>
       </div>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <div class="line line-1"></div>
-      <div class="line line-2"></div>
-      <div class="line line-3"></div>
-    </div>
-  </nav>
-
-        <script src="nav_configuration.js"></script>
-
-        <div class="wrapper-content">
-            <!-- Image Background Overlay -->
-            <div class="image-overlay">
-                <img src="img/internspace.webp" alt="Internship Opportunities at Agratas Infotech" class="internship-image">
-            </div>
-
-            <!-- Perks Section -->
-            <section class="perks-section">
-                <h2>Perks & Benefits</h2>
-                <ul class="perks-list">
-                    <li><strong>Free Access to GPT-4:</strong> Enjoy free access to GPT-4 for all your research and development needs.</li>
-                    <li><strong>INR 5000 per Task:</strong> Earn INR 5000 for every task you complete during your internship.</li>
-                    <li><strong>Research & Development Opportunities:</strong> Engage in cutting-edge R&D projects and get your name published in research papers and conferences.</li>
-                    <li><strong>Free Research Paper Publication:</strong> We cover all costs for publishing research papers for our interns.</li>
-                    <li><strong>Welcome Kit:</strong> Receive a cool welcome kit when you join our team.</li>
-                    <li><strong>Pre-Placement Offer (PPO):</strong> Stand a chance to secure a PPO based on your performance.</li>
-                    <li><strong>Exciting Surprises:</strong> Enjoy special surprises during your internship with us.</li>
+      <div class="option">
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              What we do <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="#">Overview
+                  <span class="arrow fa fa-angle-right right-arrow toggle-submenu"></span>
+                  <span class="tcs-hover">Agratas Infotech Private Limited</span>
+                  <span class="tcs-hover-details">
+                    Founded in November 25, 2020. Agratas Infotech is a premier
+                    product-based technology <br />
+                    company headquatered in Ocean Plaza, Sector 18 , Noida. We
+                    specialized to develop <br />
+                    cutting edge software products tailored for Industries such
+                    as Healthcare, Finance <br />
+                    Retails, etc. Our mission is to empower Businesses by
+                    enhancing and fostering operational <br />
+                    efficiency and fostering digital transformation through
+                    innovative technology.
+                    <br />
+                    <br />
+                    <strong><u>Our Mission</u></strong>: To empower by delivering innovative technology solutions
+                    <br />
+                    that drive digital transformation and operational
+                    excellence. <br />
+                    <br />
+                    <strong><u>Our Vision</u></strong>: To be a Global leader in technology innovation,
+                    consistantly <br />
+                    delivering Soultions that exceeds our client's expectations
+                    and shape the future.
+                  </span>
+                </a>
+              </li>
+              <li id="active">
+                <a href="#">Industries
+                  <span class="arrow fa fa-angle-right right-arrow toggle-submenu"></span>
+                </a>
+                <ul class="inner-submenu" id="inner-submenu-one">
+                  <a href="banking_finance.html">
+                    <li>Banking</li>
+                  </a>
+                  <a href="banking_finance.html">
+                    <li>Finance</li>
+                  </a>
+                  <li>Digitalization</li>
+                  <li>Communications, Media, and Information Services</li>
+                  <li>Education</li>
+                  <li>Supply Chain Management</li>
+                  <li>High Tech</li>
+                  <li>Life Sciences</li>
+                  <li>Open Sourcing</li>
                 </ul>
-            </section>
+              </li>
+              <li id="active">
+                <a href="#">Services
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
+                <ul class="inner-submenu" id="inner-submenu-two">
+                  <a href="ArtificialIntelIigence.html">
+                    <li>Artificial Intelligence</li>
+                  </a>
+                  <a href="cloudArticle.html">
+                    <li>Cloud</li>
+                  </a>
+                  <a href="DigitalMarketing.html">
+                    <li>Digitalization</li>
+                  </a>
+                  <a href="cybersecurity.html">
+                    <li>Cyber Security</li>
+                  </a>
+                  <a href="web_development.html">
+                    <li>Web Development</li>
+                  </a>
+                  <a href="mobile_app_development.html">
+                    <li>Mobile App Development</li>
+                  </a>
+                  <a href="IT_consulting.html">
+                    <li>IT Consultance</li>
+                  </a>
+                  <a href="Ecommerce.html">
+                    <li>E-Commerce solutions</li>
+                  </a>
+                </ul>
+              </li>
+              <li id="active">
+                <a href="#">Product and Platforms
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
+                <ul class="inner-submenu" id="inner-submenu-three">
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL ShopApp<sup>TM</sup></li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL ERP<sup>TM</sup></li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL SploitWeb</li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL Hotel Management System<sup>TM</sup></li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>
+                      AIPL Customer Intelligence & Insights<sup>TM</sup>
+                    </li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL ERP on Cloud</li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL Restaurant Management System<sup>TM</sup></li>
+                  </a>
+                  <a href="{% url 'dashboard' %}">
+                    <li>AIPL College ERP<sup>TM</sup></li>
+                  </a>
+                </ul>
+              </li>
+              <li id="active">
+                <a href="#">Research and Innovations
+                  <span class="arrow fa fa-angle-right" id="right-arrow"></span></a>
+                <ul class="inner-submenu" id="inner-submenu-four">
+                  <li>AIPL Research</li>
+                  <li>AIPL R&D Team</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Who are we <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="impact.html">Impact</a></li>
+              <li>
+                <a href="leadership.html">Leadership</a>
+              </li>
+              <li>
+                <a href="testimonials.html">Testimonial</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Education <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="internship.html">Internships</a>
+              </li>
+              <li><a href="AgratasiaHackForm.html">Hackathons</a></li>
+              <li>
+                <a href="placements.html">Placement</a>
+              </li>
+              <li>
+                <a href="industrial_training.html">Industrial Training</a>
+              </li>
+              <li>
+                <a href="techsummit.html">Tech Summit</a>
+              </li>
+              <li>
+                <a href="FDP.html">FDP</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Careers <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Internships</a></li>
+              <li><a href="maintenance.html">Developers</a></li>
+              <li><a href="maintenance.html">Regional Partners</a></li>
+              <li>
+                <a href="maintenance.html">Management Employees</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Newsroom <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Press release</a></li>
+              <li><a href="maintenance.html">News alerts</a></li>
+              <li><a href="maintenance.html">Analyst recognition</a></li>
+              <li><a href="maintenance.html">Media kit</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Investors <span class="arrow fa fa-angle-down"></span></a>
+            <ul class="submenu">
+              <li id="active">
+                <a href="overview.html">Overview</a>
+              </li>
+              <li><a href="maintenance.html">Manage Commentary</a></li>
+              <li><a href="maintenance.html">Financials</a></li>
+              <li><a href="maintenance.html">News and Events</a></li>
+              <li><a href="maintenance.html">ESG</a></li>
+              <li><a href="maintenance.html">Resources</a></li>
+            </ul>
+          </li>
+          <li><a href="maintenance.html">AIPL worldwide</a></li>
+        </ul>
+      </div>
+      <div class="searchbar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="address-bar-container" id="address-bar-container">
+        <div class="address-bar">
+          <input type="text" class="search-input" placeholder="Search here..." />
+          <button class="close-btn" id="close-btn">X</button>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+    </nav>
 
-            <!-- Blog Section with Intern Experiences -->
-            <section class="blog-section">
-                <h2>Experience of Previous Interns</h2>
-                <div class="experience-container">
-                    <div class="experience-item">
-                        <img src="img/abhishek-uiux.jpg" alt="Intern 1">
-                        <p>"Working at Agratas Infotech was a transformative experience. The mentors were amazing, and I received invaluable learning opportunities."</p>
-                        <div class="intern-name">— Abhishek Khatana, UIUX Dev Intern</div>
-                    </div>
-                    <div class="experience-item">
-                        <img src="img/bhavishya.jpg" alt="Intern 2">
-                        <p>"This internship gave me hands-on experience with real-world AI applications, and I got the chance to contribute to research papers."</p>
-                        <div class="intern-name">— Bhavishya Chaturvedi, Fullstack Dev Intern</div>
-                    </div>
-                    <div class="experience-item">
-                        <img src="img/prashant-intern.jpg" alt="Intern 3">
-                        <p>"Working at Agratas Infotech was transformative, enhancing my skills in client engagement and team collaboration. The mentorship and learning opportunities were invaluable."</p>
-                        <div class="intern-name">— Prashant Jha, Frontend Dev Intern</div>
-                    </div>
-                    <div class="experience-item">
-                        <img src="img/vishal-soni.jpg" alt="Intern 4">
-                        <p>"Working at Agratas Infotech was an empowering experience. The mentors provided exceptional guidance, and I gained invaluable insights into AI and ML, which significantly expanded my professional growth."</p>
-                        <div class="intern-name">— Vishal Soni, AI&ML Dev Intern</div>
-                    </div>
-                </div>
-            </section>
+    <script src="nav_configuration.js"></script>
 
-            <!-- Internship Registration Form -->
-            <h2 class="form-title">Internship Registration</h2>
-            <div class="form-container">
-                <form id="registrationForm" method="post" enctype="multipart/form-data">
-                    <!-- {% csrf_token %} -->
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="firstName"><i class="fas fa-user"></i> First Name: <span class="optional">*</span></label>
-                            <input type="text" id="firstName" name="firstName" placeholder="Akshay" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="lastName"><i class="fas fa-user"></i> Last Name: <span class="optional">*</span></label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Kumar" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email ID: <span class="optional">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="yourmail@gmail.com" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone Number: <span class="optional">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="+91 9060504051" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="institute"><i class="fas fa-university"></i> Institute Name: <span class="optional">*</span></label>
-                            <input type="text" id="institute" name="institute" placeholder="ABCD College" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="course"><i class="fas fa-book"></i> Course: <span class="optional">*</span></label>
-                            <input type="text" id="course" name="course" placeholder="B.Tech/B.E./MBA/BBA/MCA/BCA etc" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="role"><i class="fas fa-briefcase"></i> Role: <span class="optional">*</span></label>
-                            <select id="role" name="role" required>
-                                <option value="">Select internship role</option>
-                                <!-- Development Roles -->
-                                <option value="Machine Learning Intern">Machine Learning with Python</option>
-                                <option value="Artificial Intelligence Intern">Artificial Intelligence and GenAI</option>
-                                <option value="Cyber Security Intern">Cyber Security Analyst</option>
-                                <option value="Full Stack Development Intern">Full Stack Web Development (MERN Stack)</option>
-                                <option value="Android Development Intern">Android Development</option>
-                                <option value="Data Analyst Intern">Data Science with Python</option>
-                                <option value="Cloud Computing Intern">Cloud Computing</option>
-                                <option value="IOS App Development Intern">iOS App Development</option>
-                                <option value="Dot Net Backend Development Intern">Backend with .Net</option>
-                                <option value="PHP Backend Development Intern">Backend with PHP</option>
-                                <option value="Database Admin Intern">Database Administrator</option>
-                                <option value="SDE with Java Trainee">SDE with Java</option>
-                                <option value="UIUX Development Intern">UI/UX Development</option>
-                                <!-- Non-Development Roles -->
-                                <option value="Digital Marketing Intern">Digital Marketing</option>
-                                <option value="Content Writer Intern">Content Writer</option>
-                                <option value="Finance Intern">Finance</option>
-                                <option value="Marketing Intern">Marketing</option>
-                                <option value="Business Development Analyst Intern">Business Development Analyst</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="branch"><i class="fas fa-code-branch"></i> Branch: <span class="optional">*</span></label>
-                            <select id="branch" name="branch" required>
-                                <option value="">Select Your Branch</option>
-                                <option value="cse">Computer Science</option>
-                                <option value="it">Information Technology</option>
-                                <option value="ece">Electronics and Communication Engineering</option>
-                                <option value="ee">Electrical Engineering</option>
-                                <option value="me">Mechanical Engineering</option>
-                                <option value="ce">Civil Engineering</option>
-                                <option value="mse">Materials Science and Engineering</option>
-                                <option value="env">Environmental Engineering</option>
-                                <option value="automobile">Automobile Engineering</option>
-                                <option value="hr">Human Resources</option>
-                                <option value="finance">Finance</option>
-                                <option value="marketing">Marketing</option>
-                                <option value="business_admin">Business Administration</option>
-                                <option value="digital_marketing">Digital Marketing</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn Profile URL:</label>
-                            <input type="url" id="linkedin" name="linkedin" placeholder="LinkedIn URL">
-                        </div>
-                        <div class="input-group">
-                            <label for="github"><i class="fab fa-github"></i> Github Profile URL:</label>
-                            <input type="url" id="github" name="github" placeholder="Github URL">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <label for="resume"><i class="fas fa-file"></i> Your Resume: <span class="optional">* PDF file under 1 MB</span></label>
-                            <input type="file" id="resume" name="resume" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="collegeId"><i class="fas fa-id-badge"></i> College ID: <span class="optional">*</span></label>
-                            <input type="text" id="collegeId" name="collegeId" placeholder="Any Valid College ID Number" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit</button>
-                </form>
+    <div class="wrapper-content">
+      <!-- Image Background Overlay -->
+      <div class="image-overlay">
+        <img src="img/internspace.webp" alt="Internship Opportunities at Agratas Infotech" class="internship-image">
+      </div>
+
+      <!-- Perks Section -->
+      <section class="perks-section">
+        <h2>Perks & Benefits</h2>
+        <ul class="perks-list">
+          <li><strong>Free Access to GPT-4:</strong> Enjoy free access to GPT-4 for all your research and development
+            needs.</li>
+          <li><strong>INR 5000 per Task:</strong> Earn INR 5000 for every task you complete during your internship.</li>
+          <li><strong>Research & Development Opportunities:</strong> Engage in cutting-edge R&D projects and get your
+            name published in research papers and conferences.</li>
+          <li><strong>Free Research Paper Publication:</strong> We cover all costs for publishing research papers for
+            our interns.</li>
+          <li><strong>Welcome Kit:</strong> Receive a cool welcome kit when you join our team.</li>
+          <li><strong>Pre-Placement Offer (PPO):</strong> Stand a chance to secure a PPO based on your performance.</li>
+          <li><strong>Exciting Surprises:</strong> Enjoy special surprises during your internship with us.</li>
+        </ul>
+      </section>
+
+      <!-- Blog Section with Intern Experiences -->
+      <section class="blog-section">
+        <h2>Experience of Previous Interns</h2>
+        <div class="experience-container">
+          <div class="experience-item">
+            <img src="img/abhishek-uiux.jpg" alt="Intern 1">
+            <p>"Working at Agratas Infotech was a transformative experience. The mentors were amazing, and I received
+              invaluable learning opportunities."</p>
+            <div class="intern-name">— Abhishek Khatana, UIUX Dev Intern</div>
+          </div>
+          <div class="experience-item">
+            <img src="img/bhavishya.jpg" alt="Intern 2">
+            <p>"This internship gave me hands-on experience with real-world AI applications, and I got the chance to
+              contribute to research papers."</p>
+            <div class="intern-name">— Bhavishya Chaturvedi, Fullstack Dev Intern</div>
+          </div>
+          <div class="experience-item">
+            <img src="img/prashant-intern.jpg" alt="Intern 3">
+            <p>"Working at Agratas Infotech was transformative, enhancing my skills in client engagement and team
+              collaboration. The mentorship and learning opportunities were invaluable."</p>
+            <div class="intern-name">— Prashant Jha, Frontend Dev Intern</div>
+          </div>
+          <div class="experience-item">
+            <img src="img/vishal-soni.jpg" alt="Intern 4">
+            <p>"Working at Agratas Infotech was an empowering experience. The mentors provided exceptional guidance, and
+              I gained invaluable insights into AI and ML, which significantly expanded my professional growth."</p>
+            <div class="intern-name">— Vishal Soni, AI&ML Dev Intern</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Internship Registration Form -->
+      <h2 class="form-title">Internship Registration</h2>
+      <div class="form-container">
+        <form id="registrationForm" method="post" enctype="multipart/form-data">
+          <!-- {% csrf_token %} -->
+          <div class="row">
+            <div class="input-group">
+              <label for="firstName"><i class="fas fa-user"></i> First Name: <span class="optional">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="Akshay" required>
             </div>
-                <!-- "Know More About This Opportunity" Section -->
-<section class="know-more-section">
-    <h2>Know More About This Opportunity</h2>
-    <div class="know-more-content">
-        <p><strong>Unlock valuable opportunities including:</strong></p>
-        <ul>
+            <div class="input-group">
+              <label for="lastName"><i class="fas fa-user"></i> Last Name: <span class="optional">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Kumar" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <label for="email"><i class="fas fa-envelope"></i> Email ID: <span class="optional">*</span></label>
+              <input type="email" id="email" name="email" placeholder="yourmail@gmail.com" required>
+            </div>
+            <div class="input-group">
+              <label for="phone"><i class="fas fa-phone"></i> Phone Number: <span class="optional">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 9060504051" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <label for="institute"><i class="fas fa-university"></i> Institute Name: <span
+                  class="optional">*</span></label>
+              <input type="text" id="institute" name="institute" placeholder="ABCD College" required>
+            </div>
+            <div class="input-group">
+              <label for="course"><i class="fas fa-book"></i> Course: <span class="optional">*</span></label>
+              <input type="text" id="course" name="course" placeholder="B.Tech/B.E./MBA/BBA/MCA/BCA etc" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <label for="role"><i class="fas fa-briefcase"></i> Role: <span class="optional">*</span></label>
+              <select id="role" name="role" required>
+                <option value="">Select internship role</option>
+                <!-- Development Roles -->
+                <option value="Machine Learning Intern">Machine Learning with Python</option>
+                <option value="Artificial Intelligence Intern">Artificial Intelligence and GenAI</option>
+                <option value="Cyber Security Intern">Cyber Security Analyst</option>
+                <option value="Full Stack Development Intern">Full Stack Web Development (MERN Stack)</option>
+                <option value="Android Development Intern">Android Development</option>
+                <option value="Data Analyst Intern">Data Science with Python</option>
+                <option value="Cloud Computing Intern">Cloud Computing</option>
+                <option value="IOS App Development Intern">iOS App Development</option>
+                <option value="Dot Net Backend Development Intern">Backend with .Net</option>
+                <option value="PHP Backend Development Intern">Backend with PHP</option>
+                <option value="Database Admin Intern">Database Administrator</option>
+                <option value="SDE with Java Trainee">SDE with Java</option>
+                <option value="UIUX Development Intern">UI/UX Development</option>
+                <!-- Non-Development Roles -->
+                <option value="Digital Marketing Intern">Digital Marketing</option>
+                <option value="Content Writer Intern">Content Writer</option>
+                <option value="Finance Intern">Finance</option>
+                <option value="Marketing Intern">Marketing</option>
+                <option value="Business Development Analyst Intern">Business Development Analyst</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="branch"><i class="fas fa-code-branch"></i> Branch: <span class="optional">*</span></label>
+              <select id="branch" name="branch" required>
+                <option value="">Select Your Branch</option>
+                <option value="cse">Computer Science</option>
+                <option value="it">Information Technology</option>
+                <option value="ece">Electronics and Communication Engineering</option>
+                <option value="ee">Electrical Engineering</option>
+                <option value="me">Mechanical Engineering</option>
+                <option value="ce">Civil Engineering</option>
+                <option value="mse">Materials Science and Engineering</option>
+                <option value="env">Environmental Engineering</option>
+                <option value="automobile">Automobile Engineering</option>
+                <option value="hr">Human Resources</option>
+                <option value="finance">Finance</option>
+                <option value="marketing">Marketing</option>
+                <option value="business_admin">Business Administration</option>
+                <option value="digital_marketing">Digital Marketing</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn Profile URL:</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="LinkedIn URL">
+            </div>
+            <div class="input-group">
+              <label for="github"><i class="fab fa-github"></i> Github Profile URL:</label>
+              <input type="url" id="github" name="github" placeholder="Github URL">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <label for="resume"><i class="fas fa-file"></i> Your Resume: <span class="optional">* PDF file under 1
+                  MB</span></label>
+              <input type="file" id="resume" name="resume" required>
+            </div>
+            <div class="input-group">
+              <label for="collegeId"><i class="fas fa-id-badge"></i> College ID: <span class="optional">*</span></label>
+              <input type="text" id="collegeId" name="collegeId" placeholder="Any Valid College ID Number" required>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit</button>
+        </form>
+      </div>
+      <!-- "Know More About This Opportunity" Section -->
+      <section class="know-more-section">
+        <h2>Know More About This Opportunity</h2>
+        <div class="know-more-content">
+          <p><strong>Unlock valuable opportunities including:</strong></p>
+          <ul>
             <li>Office activities & client meetings</li>
             <li>A chance to mentor, judge, or participate in our <strong>36-Hour Hackathon</strong> (Feb 2025)</li>
             <li>Online dashboard access for task submissions, meetings, and teamwork</li>
             <li>Onsite & offsite meetups for tech like iOS, AI, Web3, and more</li>
             <li>Top 10 interns may join the <strong>Agratas Infotech Core Developer Team</strong></li>
-        </ul>
-        <p><strong>Enrollment Fee: INR 2200 (35 intakes only)</strong></p>
-    </div>
-</section>
-
-
-
+          </ul>
+          <p><strong>Enrollment Fee: INR 2200 (35 intakes only)</strong></p>
         </div>
+      </section>
+
+
+
     </div>
-    </div>
- <!--------------------------------------------------- FOOTER ---------------------------------------->
- <footer>
-  <div class="content">
-    <div class="top">
-      <div class="logo-details">
-        <i class="fab fa-slack"></i>
-        <span class="logo_name">Agratas Infotech Private Limited</span>
+  </div>
+  </div>
+  <!--------------------------------------------------- FOOTER ---------------------------------------->
+  <footer>
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <i class="fab fa-slack"></i>
+          <span class="logo_name">Agratas Infotech Private Limited</span>
+        </div>
+        <div class="media-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <div class="media-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="link-boxes">
-      <ul class="box">
-        <li class="link_name">Company</li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Get started</a></li>
-      </ul>
-      <ul class="box">
-        <li class="link_name">Services</li>
-        <li><a href="#">App Development</a></li>
-        <li><a href="#">Web Development</a></li>
-        <li><a href="#">Game Development</a></li>
-        <li><a href="#">UIUX/Logo design</a></li>
-      </ul>
-      <ul class="box">
-        <li class="link_name">Opportunities</li>
-        <li><a href="#">ID Verification</a></li>
-        <li><a href="{% url 'articles' '#' %}">Apply for Jobs</a></li>
-        <li><a href="{% url 'articles' '#' %}">Explore Hackathons</a></li>
-        <li><a href="#">Our R&D Team</a></li>
-      </ul>
-      <ul class="box">
-        <li class="link_name">Specialized</li>
-        <li><a href="ArtificialIntelIigence.html">Artificial Intelligence</a></li>
-        <li><a href="#">Machine Learning</a></li>
-        <li><a href="DigitalMarketing.html">Digital Marketing</a></li>
-        <li><a href="#">Internet of Things</a></li>
-      </ul>
-      <ul class="box input-box">
-          <form 
-          style="
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">Company</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Get started</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Services</li>
+          <li><a href="#">App Development</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Game Development</a></li>
+          <li><a href="#">UIUX/Logo design</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Opportunities</li>
+          <li><a href="#">ID Verification</a></li>
+          <li><a href="{% url 'articles' '#' %}">Apply for Jobs</a></li>
+          <li><a href="{% url 'articles' '#' %}">Explore Hackathons</a></li>
+          <li><a href="#">Our R&D Team</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Specialized</li>
+          <li><a href="ArtificialIntelIigence.html">Artificial Intelligence</a></li>
+          <li><a href="#">Machine Learning</a></li>
+          <li><a href="DigitalMarketing.html">Digital Marketing</a></li>
+          <li><a href="#">Internet of Things</a></li>
+        </ul>
+        <ul class="box input-box">
+          <form style="
             background: transparent;
             padding: 0px;
             border-radius: 0px;
@@ -525,26 +1668,243 @@
             width: auto;
             max-width: unset;
             box-sizing: unset;
-          "
-          class="footer-form" action="{% url 'subscribe' %}" method="post">
-            {% csrf_token %}
+          " class="footer-form" action="{% url 'subscribe' %}" method="post">
+
             <li class="link_name">Subscribe</li>
             <li><input type="email" name="subscribe" placeholder="Enter your email"></li>
             <li><input type="submit"></li>
           </form>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="bottom-details">
-    <div class="bottom_text">
-      <span class="copyright_text">Copyright © 2024 <a href="#">erp.agratasinfotech.com</a>All rights reserved</span>
-      <span class="policy_terms">
-        <a href="refund2.html">Refund policy</a>
-        <a href="privacy.html">Privacy policy</a>
-        <a href="Terms_and_Conditions.html">Terms & Conditions</a>
-      </span>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2024 <a href="#">erp.agratasinfotech.com</a>All rights reserved</span>
+        <span class="policy_terms">
+          <a href="refund2.html">Refund policy</a>
+          <a href="privacy.html">Privacy policy</a>
+          <a href="Terms_and_Conditions.html">Terms & Conditions</a>
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </body>
+
+<script>
+  //-------------------------------------- NAVBAR ----------------------------------------
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const option = document.querySelector(".option");
+    const navbar = document.querySelector("nav");
+    let isNavGrey = false;
+
+    console.log("Document loaded and script initialized.");
+
+    // Toggle hamburger and navigation options
+    if (hamburger && option && navbar) {
+      hamburger.addEventListener("click", () => {
+        console.log("Hamburger menu clicked");
+        hamburger.classList.toggle("active");
+        option.classList.toggle("active");
+
+        // Check if the hamburger menu is active to change the navbar and menu color
+        if (hamburger.classList.contains("active")) {
+          navbar.classList.add("scrolled");
+          option.classList.add("scrolled");
+          isNavGrey = true;
+          console.log("Navbar and menu color changed to grey when menu opened");
+        } else {
+          navbar.classList.remove("scrolled");
+          option.classList.remove("scrolled");
+          isNavGrey = false;
+          console.log("Navbar and menu color reset when menu closed");
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        const scrollableHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrolledPercentage = (window.scrollY / scrollableHeight) * 100;
+
+        console.log(`Scrolled percentage: ${scrolledPercentage}`);
+
+        if (scrolledPercentage >= 1 && !isNavGrey) {
+          navbar.classList.add("scrolled");
+          option.classList.add("scrolled");
+          isNavGrey = true;
+          console.log("Navbar and menu color changed on scroll");
+        } else if (
+          scrolledPercentage < 1 &&
+          isNavGrey &&
+          !hamburger.classList.contains("active")
+        ) {
+          // Ensure the navbar and menu color reset only if the menu is not active
+          navbar.classList.remove("scrolled");
+          option.classList.remove("scrolled");
+          isNavGrey = false;
+          console.log("Navbar and menu color reset on scroll");
+        }
+      });
+    }
+
+    // Handle clicks on main menu items to toggle submenus
+    document.querySelectorAll(".nav-links > li > a").forEach(function (item) {
+      item.addEventListener("click", function (event) {
+        event.preventDefault();
+        const parentLi = this.parentNode;
+        const thisSubmenu = parentLi.querySelector(".submenu");
+        navbar.classList.add("scrolled");
+        option.classList.add("scrolled");
+
+        // Close all other submenus
+        document.querySelectorAll(".submenu").forEach((submenu) => {
+          if (submenu !== thisSubmenu) {
+            submenu.classList.remove("show");
+            submenu.style.maxHeight = null;
+            submenu.style.opacity = 0;
+            const arrow =
+              submenu.previousElementSibling.querySelector(".arrow");
+            if (arrow) arrow.classList.remove("down");
+          }
+        });
+
+        // Toggle the current submenu
+        const isSubmenuVisible = thisSubmenu.classList.toggle("show");
+        thisSubmenu.style.maxHeight = isSubmenuVisible
+          ? thisSubmenu.scrollHeight + "px"
+          : 0;
+        thisSubmenu.style.opacity = isSubmenuVisible ? 1 : 0;
+        const arrow =
+          thisSubmenu.previousElementSibling.querySelector(".arrow");
+        if (arrow) arrow.classList.toggle("down", isSubmenuVisible);
+
+        console.log(
+          `Submenu for '${this.textContent.trim()}' toggled: `,
+          isSubmenuVisible
+        );
+      });
+    });
+
+    // Handle clicks on submenu items to toggle inner-submenus
+    document.querySelectorAll(".submenu > li").forEach(function (item) {
+      const innerSubmenu = item.querySelector(".inner-submenu");
+
+      item.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        // Close all other inner submenus except this one
+        document.querySelectorAll(".inner-submenu").forEach(function (menu) {
+          if (menu !== innerSubmenu) {
+            menu.style.display = "none";
+          }
+        });
+
+        // Toggle the display of this inner submenu
+        if (innerSubmenu) {
+          innerSubmenu.style.display =
+            innerSubmenu.style.display === "none" ? "block" : "none";
+          console.log(
+            `Inner-submenu for '${item.textContent.trim()}' toggled: `,
+            innerSubmenu.style.display
+          );
+
+          // Toggle the icon from + to - and vice versa
+          const icon = item.querySelector(".icon");
+          if (icon) {
+            icon.textContent =
+              innerSubmenu.style.display === "block" ? "-" : "+";
+          }
+        }
+      });
+    });
+
+    // Initially hide all inner-submenus
+    document.querySelectorAll(".inner-submenu").forEach(function (menu) {
+      menu.style.display = "none";
+    });
+
+    // Close all menus when clicking outside of the navbar
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest("nav")) {
+        closeAllMenus();
+        console.log("Clicked outside navbar, all menus closed.");
+      }
+    });
+
+    function closeAllMenus() {
+      document
+        .querySelectorAll(".submenu, .inner-submenu")
+        .forEach(function (menu) {
+          menu.classList.remove("show");
+          menu.style.display = "none";
+          const arrow = menu.previousElementSibling.querySelector(".arrow");
+          if (arrow) arrow.classList.remove("down");
+        });
+      option.classList.remove("active");
+      navbar.classList.remove("scrolled");
+      hamburger.classList.remove("active");
+      isNavGrey = false;
+      console.log("All menus and submenu settings have been reset.");
+    }
+
+    // Additional listeners for address bar interactions
+    const addressBarContainer = document.getElementById(
+      "address-bar-container"
+    );
+    const closeBtn = document.getElementById("close-btn");
+    const searchIcon = document.querySelector(".searchbar i");
+
+    searchIcon.addEventListener("click", () => {
+      addressBarContainer.style.display = "block";
+      closeAllMenus();
+      console.log("Search icon clicked, address bar displayed.");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      addressBarContainer.style.display = "none";
+      console.log("Close button clicked, address bar hidden.");
+    });
+
+    // Toggle hamburger icon based on screen width
+    function toggleMenuIcons() {
+      const menuItems = document.querySelectorAll(".nav-links > li");
+
+      menuItems.forEach((item) => {
+        const submenu = item.querySelector(".submenu");
+
+        if (submenu) {
+          submenu.style.padding =
+            window.innerWidth <= 768 ? "16px 20px 20px 20px" : "0% 50% 95% 50%";
+
+          // Check if inner-submenu icons exist and remove them if screen size is >= 768px
+          const innerSubmenuIcons = item.querySelectorAll(".icon");
+          if (window.innerWidth >= 768 && innerSubmenuIcons.length > 0) {
+            innerSubmenuIcons.forEach((icon) => {
+              icon.remove();
+            });
+          }
+
+          // Add inner-submenu icons if screen size is < 768px and icons don't already exist
+          if (window.innerWidth < 768 && innerSubmenuIcons.length === 0) {
+            // const icon = document.createElement("span");
+            // icon.classList.add("icon");
+            // icon.textContent = "+"; // Initial icon state
+            // item.appendChild(icon);
+          }
+
+          // Set initial arrow state for closed submenus
+          const arrow = item.querySelector(".arrow");
+          if (arrow && !submenu.classList.contains("show")) {
+            arrow.classList.remove("down");
+          }
+        }
+      });
+    }
+
+    toggleMenuIcons(); // Initial call to set icons based on initial screen width
+    window.addEventListener("resize", toggleMenuIcons); // Call on window resize
+  });
+</script>
+<script src="nav_configuration.js"></script>
+
 </html>
